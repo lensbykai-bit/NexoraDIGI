@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<title>Nexora Digital</title>
+<style>
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:"DM Sans",sans-serif;color:#0b0d14;background:#fff} a{color:inherit;text-decoration:none} .wrap{width:min(1180px,calc(100% - 42px));margin:auto}
+header{border-bottom:1px solid #ececf1;background:#fff;position:sticky;top:0;z-index:30} .nav{height:70px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:10px;min-width:220px} .logo{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 18px "Space Grotesk";background:linear-gradient(135deg,#5368ff,#813ef2 58%,#ef3478)} .brandText{line-height:1} .brandText b{font:700 15px "Space Grotesk"} .brandText small{display:block;margin-top:5px;font-size:7px;letter-spacing:2px;color:#8a42ef}
+.menu{display:flex;align-items:center;gap:25px;flex:1} .menu a,.menu span{font-size:12px;color:#656d7e;font-weight:600} .menu a:hover{color:#0b0d14} .soon{opacity:.5;cursor:not-allowed} .soon small{display:block;font-size:7px;color:#9aa0ad;margin-top:2px}
+.auth{display:flex;align-items:center;gap:8px} .auth button{font:700 11px "DM Sans";cursor:pointer} .signup{border:0;background:transparent;padding:10px 5px} .signin{border:1px solid #dddfe6;background:#0b0d14;color:#fff;border-radius:999px;padding:11px 18px}
+.hero{padding:68px 0 48px} .heroGrid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center} .eyebrow{font:600 9px monospace;letter-spacing:2.6px;color:#747b8b;margin-bottom:23px} .eyebrow i{display:inline-block;width:32px;height:1px;background:linear-gradient(90deg,#5368ff,#ef3478);margin-right:10px;vertical-align:middle}
+h1{font:700 clamp(54px,6.2vw,80px)/.95 "Space Grotesk";letter-spacing:-4.3px;margin:0} .grad{background:linear-gradient(90deg,#5065ff,#7e3df3 56%,#ef3478);-webkit-background-clip:text;background-clip:text;color:transparent} .hero p{max-width:560px;color:#70788a;font-size:15px;line-height:1.65;margin:26px 0}
+.actions{display:flex;gap:12px;flex-wrap:wrap} .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-size:11px;font-weight:800} .btnGrad{color:#fff;background:linear-gradient(100deg,#4f65ff,#7e3df3 58%,#ef3478);box-shadow:0 13px 30px rgba(90,60,220,.22)} .btnLight{border:1px solid #dedfe5;background:#fff}
+.visual{min-height:420px;border-radius:30px;padding:46px;background:linear-gradient(145deg,#4663ff,#753cf3 52%,#da2f73);display:flex;align-items:center;justify-content:center} .visualCard{width:100%;max-width:330px;aspect-ratio:1/1;background:#fff;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px} .visualN{width:120px;height:120px;border-radius:32px;display:grid;place-items:center;color:#fff;font:700 58px "Space Grotesk";background:linear-gradient(135deg,#5368ff,#813ef2 58%,#ef3478)} .visualCard h2{font:700 26px "Space Grotesk";margin:18px 0 4px} .visualCard small{font:600 8px monospace;letter-spacing:1.8px;color:#8a91a1}
+.road{padding:36px 0 52px} .roadTitle{font:600 8px monospace;letter-spacing:2.1px;color:#818797;margin-bottom:18px} .roadGrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #d8dbe3} .roadItem{padding:17px 25px 0 0;position:relative} .roadItem:not(:last-child){border-right:1px solid #e1e3e9;margin-right:25px} .dot{width:10px;height:10px;border-radius:50%;background:#fff;border:1px solid #111;position:absolute;top:-6px} .roadItem:last-child .dot{background:#ef3478;border-color:#ef3478;box-shadow:0 0 0 5px #ffe1eb} .roadItem b{display:block;font:700 18px "Space Grotesk";margin:3px 0 6px} .roadItem p{font-size:11px;color:#777f8f}
+.stats{background:#0b0e16;color:#fff} .statsGrid{display:grid;grid-template-columns:repeat(4,1fr)} .stat{padding:28px 0} .stat strong{display:block;font:700 27px "Space Grotesk"} .stat span{font-size:10px;color:#8992a3}
+.explore{padding:76px 0 86px} .kicker{font:600 8px monospace;letter-spacing:2px;color:#8147ef} .sectionTitle{font:700 42px "Space Grotesk";letter-spacing:-2px;margin:10px 0 4px} .sub{font-size:13px;color:#777f8f} .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:36px} .card{border:1px solid #e0e1e6;border-radius:18px;padding:24px;min-height:190px;background:#fff} .card span.num{font:600 8px monospace;color:#969ba7} .card h3{font:700 19px "Space Grotesk";margin:25px 0 7px} .card p{font-size:12px;color:#767e8e} .card a{font-size:11px;color:#6f56ef;font-weight:800} .card.comingCard{opacity:.62}
+.cta{background:#0b0e16;color:#fff;padding:70px 0;text-align:center} .cta h2{font:700 43px/1.05 "Space Grotesk";letter-spacing:-2px;margin:0 0 12px} .cta p{max-width:560px;margin:0 auto 22px;color:#9ca4b4;font-size:13px}
+footer{background:#080a10;color:#8a92a2;padding:44px 0 25px} .foot{display:flex;justify-content:space-between;gap:30px} .footLinks{display:flex;gap:18px;flex-wrap:wrap} .footLinks a{font-size:11px} .copyright{border-top:1px solid #20232b;margin-top:30px;padding-top:18px;font-size:10px}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(3,5,10,.72);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px} .modal.open{display:flex} .box{width:min(420px,100%);background:#fff;color:#0b0d14;border-radius:22px;padding:28px;position:relative} .box h3{font:700 28px "Space Grotesk";margin:0 0 4px} .box p{font-size:12px;color:#767e8e} .box input{width:100%;padding:13px;border:1px solid #e0e2e7;border-radius:12px;margin-top:10px} .box .submit{width:100%;margin-top:13px;padding:13px;border:0;border-radius:999px;background:linear-gradient(100deg,#4f65ff,#7e3df3 58%,#ef3478);color:#fff;font-weight:800} .close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:21px;cursor:pointer}
+@media(max-width:950px){.menu{display:none} .heroGrid{grid-template-columns:1fr} .roadGrid{grid-template-columns:1fr 1fr;gap:25px} .roadItem{border:0!important;margin:0!important} .cards{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.wrap{width:calc(100% - 28px)} .brand{min-width:0} .auth{margin-left:auto} .hero{padding-top:46px} h1{font-size:49px;letter-spacing:-3px} .visual{min-height:340px;padding:28px} .visualN{width:100px;height:100px;font-size:48px} .roadGrid,.cards,.statsGrid{grid-template-columns:1fr 1fr} .statsGrid .stat{padding:22px 0} .sectionTitle{font-size:34px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="logo">N</span>
+      <span class="brandText"><b>Nexora Digital</b><small>DIGITAL STORE</small></span>
+    </a>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="buy-prompt.html"><b>Buy Prompt</b></a>
+      <span class="soon">Tax<small>Coming Soon</small></span>
+      <span class="soon">EIN<small>Coming Soon</small></span>
+      <span class="soon">TikTok<small>Coming Soon</small></span>
+    </nav>
+    <div class="auth">
+      <button class="signup" onclick="openModal('signup')">Sign Up</button>
+      <button class="signin" onclick="openModal('signin')">Sign In</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap heroGrid">
+    <div>
+      <div class="eyebrow"><i></i> CAMBODIA · DIGITAL CREATOR STORE · 2026</div>
+      <h1>Turn your<br>content into<br><span class="grad">real income.</span></h1>
+      <p>Nexora Digital helps creators access useful prompts and digital services in one clean, simple place.</p>
+      <div class="actions">
+        <a class="btn btnGrad" href="buy-prompt.html">Buy Prompt →</a>
+        <a class="btn btnLight" href="https://t.me/YOUR_CHANNEL" target="_blank" rel="noopener">Telegram Channel</a>
+      </div>
+    </div>
+    <div class="visual">
+      <div class="visualCard">
+        <div class="visualN">N</div>
+        <h2>Nexora Digital</h2>
+        <small>LEARN · CREATE · GROW · MONETIZE</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="road">
+  <div class="wrap">
+    <div class="roadTitle">THE ROAD SO FAR</div>
+    <div class="roadGrid">
+      <div class="roadItem"><span class="dot"></span><b>2019</b><p>Started from zero and learned what actually works.</p></div>
+      <div class="roadItem"><span class="dot"></span><b>2021</b><p>Built repeatable creator workflows and digital skills.</p></div>
+      <div class="roadItem"><span class="dot"></span><b>2023</b><p>Expanded into AI content, branding, and monetization.</p></div>
+      <div class="roadItem"><span class="dot"></span><b>Today</b><p>Nexora Digital becomes a simple creator-focused store.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap statsGrid">
+    <div class="stat"><strong>2026</strong><span>Modern creator education</span></div>
+    <div class="stat"><strong>1</strong><span>Prompt store open now</span></div>
+    <div class="stat"><strong>AI+</strong><span>Practical workflows</span></div>
+    <div class="stat"><strong>24/7</strong><span>Digital access</span></div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <span class="kicker">EXPLORE</span>
+    <h2 class="sectionTitle">Everything, in one place.</h2>
+    <p class="sub">For now, only Buy Prompt opens a second page.</p>
+    <div class="cards">
+      <article class="card"><span class="num">01</span><h3>Buy Prompt</h3><p>Browse categories and open prompt cards on a dedicated page.</p><a href="buy-prompt.html">Open Prompt Store →</a></article>
+      <article class="card comingCard"><span class="num">02</span><h3>Tax</h3><p>Service page will be added later.</p><strong>Coming Soon</strong></article>
+      <article class="card comingCard"><span class="num">03</span><h3>EIN</h3><p>Service page will be added later.</p><strong>Coming Soon</strong></article>
+      <article class="card comingCard"><span class="num">04</span><h3>TikTok</h3><p>Service page will be added later.</p><strong>Coming Soon</strong></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Start with the Prompt Store.</h2>
+    <p>Tax, EIN, and TikTok will remain Coming Soon until you are ready to create those pages.</p>
+    <a class="btn btnGrad" href="buy-prompt.html">Buy Prompt →</a>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="signup"><div class="box"><button class="close" onclick="closeModals()">×</button><h3>Create account</h3><p>Sign up to Nexora Digital.</p><input placeholder="Full name"><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button class="submit">Sign Up</button></div></div>
+<div class="modal" id="signin"><div class="box"><button class="close" onclick="closeModals()">×</button><h3>Welcome back</h3><p>Sign in to your account.</p><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button class="submit">Sign In</button></div></div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><b>Nexora Digital</b><div style="font-size:11px;margin-top:7px">Learn · Create · Grow · Monetize</div></div>
+      <div class="footLinks"><a href="index.html">Home</a><a href="buy-prompt.html">Buy Prompt</a><span>Tax — Coming Soon</span><span>EIN — Coming Soon</span><span>TikTok — Coming Soon</span></div>
+    </div>
+    <div class="copyright">© 2026 Nexora Digital</div>
+  </div>
+</footer>
+
+<script>
+function openModal(id){document.getElementById(id).classList.add('open')}
+function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'))}
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModals()}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModals()});
+</script>
+</body>
+</html>
