@@ -652,6 +652,118 @@ footer{background:#080a10;color:#8b93a2;padding:28px 0;font-size:10px}
   .myPromptOpen{grid-column:1/-1;width:100%}
 }
 
+
+/* ===== Full Prompt Category List ===== */
+.filters{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:8px 9px!important;
+  margin-bottom:34px!important;
+}
+.chip{
+  white-space:nowrap!important;
+  padding:9px 14px!important;
+  border-radius:999px!important;
+  font-size:8.5px!important;
+  letter-spacing:1.05px!important;
+  line-height:1!important;
+}
+@media(max-width:640px){
+  .filters{gap:7px!important}
+  .chip{padding:8px 11px!important;font-size:7.8px!important}
+}
+
+
+/* ===== Cool Eye-Friendly Background Theme ===== */
+:root{
+  --cool-bg:#f3f6fb;
+  --cool-bg-2:#eef2f9;
+  --cool-panel:#f8faff;
+  --cool-border:#dce3ee;
+  --cool-text:#111827;
+  --cool-muted:#6f7890;
+}
+
+/* Main light backgrounds */
+body{
+  background:
+    radial-gradient(circle at 10% 10%, rgba(99,102,241,.06), transparent 28%),
+    radial-gradient(circle at 90% 0%, rgba(168,85,247,.05), transparent 24%),
+    linear-gradient(180deg,var(--cool-bg),var(--cool-bg-2)) !important;
+}
+
+/* Header stays clean but softer than pure white */
+header{
+  background:rgba(248,250,255,.92) !important;
+  border-bottom:1px solid var(--cool-border) !important;
+  backdrop-filter:blur(16px);
+}
+
+/* Home light sections */
+.hero,
+.road,
+.explore,
+.store,
+.page,
+.promptPage{
+  background:
+    radial-gradient(circle at 12% 0%, rgba(92,103,255,.05), transparent 30%),
+    linear-gradient(180deg,#f8faff 0%,#f1f5fb 100%) !important;
+}
+
+/* Cards / prompt cards stay bright for contrast */
+.card,
+.storeCard,
+.promptCard,
+.myPromptsBox,
+.accountDropdown,
+.box{
+  background:#ffffff !important;
+  border-color:var(--cool-border) !important;
+}
+
+/* Prompt category area */
+.filters{
+  padding:18px !important;
+  border-radius:18px !important;
+  background:rgba(255,255,255,.58) !important;
+  border:1px solid rgba(220,227,238,.9) !important;
+  box-shadow:0 10px 30px rgba(31,41,55,.035) !important;
+}
+.chip{
+  background:#fbfcff !important;
+  border-color:#dbe2ec !important;
+  color:#586277 !important;
+}
+.chip:hover{
+  background:#f3f5ff !important;
+  border-color:#b9c2d4 !important;
+  color:#111827 !important;
+}
+.chip.active{
+  background:linear-gradient(135deg,#111827,#1f2937) !important;
+  color:#fff !important;
+  border-color:#111827 !important;
+  box-shadow:0 0 0 2px #f7f9ff,0 0 0 3px #7c6cff !important;
+}
+
+/* Softer text */
+.intro p,.sub,.roadItem p,.card p,.storeCard p{
+  color:var(--cool-muted) !important;
+}
+
+/* Inputs */
+.authForm input,
+.box input{
+  background:#fbfcff !important;
+  border-color:#dbe2ec !important;
+}
+
+/* Footer remains dark for contrast */
+footer{
+  background:#0a0d15 !important;
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -718,15 +830,136 @@ footer{background:#080a10;color:#8b93a2;padding:28px 0;font-size:10px}
       <button class="chip active" data-filter="all">ALL</button>
       <button class="chip" data-filter="emotional-story">EMOTIONAL STORY</button>
       <button class="chip" data-filter="3d-animation">3D ANIMATION</button>
+      <button class="chip" data-filter="cute-animals">CUTE ANIMALS</button>
+      <button class="chip" data-filter="fantasy-creature">FANTASY CREATURE</button>
       <button class="chip" data-filter="ai-short-film">AI SHORT FILM</button>
       <button class="chip" data-filter="viral-shorts">VIRAL SHORTS</button>
-      <button class="chip" data-filter="cinematic">CINEMATIC</button>
+      <button class="chip" data-filter="animal-content">ANIMAL CONTENT</button>
+      <button class="chip" data-filter="kindness">KINDNESS</button>
+      <button class="chip" data-filter="family">FAMILY</button>
+      <button class="chip" data-filter="monsters">MONSTERS</button>
+      <button class="chip" data-filter="wildlife">WILDLIFE</button>
+      <button class="chip" data-filter="survival">SURVIVAL</button>
       <button class="chip" data-filter="pov">POV</button>
+      <button class="chip" data-filter="product-reveal">PRODUCT REVEAL</button>
+      <button class="chip" data-filter="cinematic">CINEMATIC</button>
+      <button class="chip" data-filter="textile-art-characters">TEXTILE ART CHARACTERS</button>
+      <button class="chip" data-filter="transformation">TRANSFORMATION</button>
+      <button class="chip" data-filter="food-and-cooking">FOOD AND COOKING</button>
+      <button class="chip" data-filter="stop-motion">STOP MOTION</button>
+      <button class="chip" data-filter="construction">CONSTRUCTION</button>
+      <button class="chip" data-filter="nature-growth">NATURE GROWTH</button>
+      <button class="chip" data-filter="tiny-characters">TINY CHARACTERS</button>
       <button class="chip" data-filter="funny-animation">FUNNY ANIMATION</button>
+      <button class="chip" data-filter="horror">HORROR</button>
+      <button class="chip" data-filter="product-commercial">PRODUCT COMMERCIAL</button>
+      <button class="chip" data-filter="character-animation">CHARACTER ANIMATION</button>
+      <button class="chip" data-filter="handmade-craft">HANDMADE CRAFT</button>
+      <button class="chip" data-filter="miniature">MINIATURE</button>
       <button class="chip" data-filter="animal-story">ANIMAL STORY</button>
+      <button class="chip" data-filter="tiny-world">TINY WORLD</button>
+      <button class="chip" data-filter="fantasy">FANTASY</button>
+      <button class="chip" data-filter="mini-world">MINI WORLD</button>
+      <button class="chip" data-filter="magical-world">MAGICAL WORLD</button>
+      <button class="chip" data-filter="food-commercial">FOOD COMMERCIAL</button>
       <button class="chip" data-filter="cooking">COOKING</button>
-      <button class="chip" data-filter="asmr">ASMR</button>
+      <button class="chip" data-filter="food">FOOD</button>
+      <button class="chip" data-filter="miniature-world">MINIATURE WORLD</button>
+      <button class="chip" data-filter="macro">MACRO</button>
       <button class="chip" data-filter="nature">NATURE</button>
+      <button class="chip" data-filter="luxury">LUXURY</button>
+      <button class="chip" data-filter="craft">CRAFT</button>
+      <button class="chip" data-filter="diy">DIY</button>
+      <button class="chip" data-filter="industrial-manufacturing">INDUSTRIAL MANUFACTURING</button>
+      <button class="chip" data-filter="documentary">DOCUMENTARY</button>
+      <button class="chip" data-filter="animal-animation">ANIMAL ANIMATION</button>
+      <button class="chip" data-filter="kids-animation">KIDS ANIMATION</button>
+      <button class="chip" data-filter="fantasy-animation">FANTASY ANIMATION</button>
+      <button class="chip" data-filter="craft-animation">CRAFT ANIMATION</button>
+      <button class="chip" data-filter="diy-craft">DIY CRAFT</button>
+      <button class="chip" data-filter="main-category">MAIN CATEGORY</button>
+      <button class="chip" data-filter="other">OTHER</button>
+      <button class="chip" data-filter="vehicle">VEHICLE</button>
+      <button class="chip" data-filter="interior-design">INTERIOR DESIGN</button>
+      <button class="chip" data-filter="social-media-content">SOCIAL MEDIA CONTENT</button>
+      <button class="chip" data-filter="health-clean">HEALTH & CLEAN</button>
+      <button class="chip" data-filter="sci-fi">SCI-FI</button>
+      <button class="chip" data-filter="cartoon-animation">CARTOON ANIMATION</button>
+      <button class="chip" data-filter="funny">FUNNY</button>
+      <button class="chip" data-filter="adventure">ADVENTURE</button>
+      <button class="chip" data-filter="luxury-interior">LUXURY INTERIOR</button>
+      <button class="chip" data-filter="timelapse">TIMELAPSE</button>
+      <button class="chip" data-filter="miniature-world">MINIATURE WORLD</button>
+      <button class="chip" data-filter="entertainment">ENTERTAINMENT</button>
+      <button class="chip" data-filter="animal">ANIMAL</button>
+      <button class="chip" data-filter="cooking-asmr">COOKING ASMR</button>
+      <button class="chip" data-filter="architecture">ARCHITECTURE</button>
+      <button class="chip" data-filter="animal-birds">ANIMAL & BIRDS</button>
+      <button class="chip" data-filter="food-asmr">FOOD ASMR</button>
+      <button class="chip" data-filter="mechanical-transformation">MECHANICAL TRANSFORMATION</button>
+      <button class="chip" data-filter="art">ART</button>
+      <button class="chip" data-filter="miniature-animation">MINIATURE ANIMATION</button>
+      <button class="chip" data-filter="surreal-aviation-simulation">SURREAL AVIATION SIMULATION</button>
+      <button class="chip" data-filter="accident-simulation">ACCIDENT SIMULATION</button>
+      <button class="chip" data-filter="industrial-maintenance">INDUSTRIAL MAINTENANCE</button>
+      <button class="chip" data-filter="mechanical-failure">MECHANICAL FAILURE</button>
+      <button class="chip" data-filter="vfx">VFX</button>
+      <button class="chip" data-filter="superhero-action">SUPERHERO ACTION</button>
+      <button class="chip" data-filter="sea-creatures">SEA CREATURES</button>
+      <button class="chip" data-filter="creature-interaction">CREATURE INTERACTION</button>
+      <button class="chip" data-filter="scientific-process">SCIENTIFIC PROCESS</button>
+      <button class="chip" data-filter="futuristic-transport">FUTURISTIC TRANSPORT</button>
+      <button class="chip" data-filter="food-preparation">FOOD PREPARATION</button>
+      <button class="chip" data-filter="health-fitness">HEALTH & FITNESS</button>
+      <button class="chip" data-filter="lifestyle">LIFESTYLE</button>
+      <button class="chip" data-filter="emotional-kids-story">EMOTIONAL KIDS STORY</button>
+      <button class="chip" data-filter="animation">ANIMATION</button>
+      <button class="chip" data-filter="anthropomorphic-food">ANTHROPOMORPHIC FOOD</button>
+      <button class="chip" data-filter="cleaning">CLEANING</button>
+      <button class="chip" data-filter="sticky-animation">STICKY ANIMATION</button>
+      <button class="chip" data-filter="beauty">BEAUTY</button>
+      <button class="chip" data-filter="alien-encounter">ALIEN ENCOUNTER</button>
+      <button class="chip" data-filter="birds">BIRDS</button>
+      <button class="chip" data-filter="cute-toddler">CUTE TODDLER</button>
+      <button class="chip" data-filter="asmr-texture">ASMR TEXTURE</button>
+      <button class="chip" data-filter="hydraulic-press">HYDRAULIC PRESS</button>
+      <button class="chip" data-filter="macro-asmr">MACRO ASMR</button>
+      <button class="chip" data-filter="cleaning-diy">CLEANING / DIY</button>
+      <button class="chip" data-filter="asmr">ASMR</button>
+      <button class="chip" data-filter="fantasy-nature">FANTASY NATURE</button>
+      <button class="chip" data-filter="hidden-home">HIDDEN HOME</button>
+      <button class="chip" data-filter="nature-landscape">NATURE LANDSCAPE</button>
+      <button class="chip" data-filter="fantasy-environment">FANTASY ENVIRONMENT</button>
+      <button class="chip" data-filter="other-cosmic-fantasy-scene">OTHER (COSMIC FANTASY SCENE)</button>
+      <button class="chip" data-filter="nature-disaster">NATURE DISASTER</button>
+      <button class="chip" data-filter="restoration">RESTORATION</button>
+      <button class="chip" data-filter="industrial-work">INDUSTRIAL WORK</button>
+      <button class="chip" data-filter="diy-craft">DIY CRAFT</button>
+      <button class="chip" data-filter="nature-animation">NATURE ANIMATION</button>
+      <button class="chip" data-filter="cooking-animation">COOKING ANIMATION</button>
+      <button class="chip" data-filter="ai-interaction">AI INTERACTION</button>
+      <button class="chip" data-filter="unboxing">UNBOXING</button>
+      <button class="chip" data-filter="handmade-decoration">HANDMADE DECORATION</button>
+      <button class="chip" data-filter="diy-creation">DIY CREATION</button>
+      <button class="chip" data-filter="nature-fantasy">NATURE FANTASY</button>
+      <button class="chip" data-filter="diy-nature-growth">DIY / NATURE GROWTH</button>
+      <button class="chip" data-filter="miniature-animal-world">MINIATURE ANIMAL WORLD</button>
+      <button class="chip" data-filter="food-asmr">FOOD ASMR</button>
+      <button class="chip" data-filter="luxury-model-car">LUXURY MODEL CAR</button>
+      <button class="chip" data-filter="3d-horror-cartoon">3D HORROR CARTOON</button>
+      <button class="chip" data-filter="skin-care-reveal-asmr">SKIN CARE REVEAL ASMR</button>
+      <button class="chip" data-filter="eating-asmr">EATING ASMR</button>
+      <button class="chip" data-filter="asmr">ASMR</button>
+      <button class="chip" data-filter="cutting-asmr">CUTTING ASMR</button>
+      <button class="chip" data-filter="fantasy-material-transformation">FANTASY MATERIAL TRANSFORMATION</button>
+      <button class="chip" data-filter="cleaning-restoration">CLEANING RESTORATION</button>
+      <button class="chip" data-filter="miniature-diy-furniture">MINIATURE DIY FURNITURE</button>
+      <button class="chip" data-filter="aircraft-restoration">AIRCRAFT RESTORATION</button>
+      <button class="chip" data-filter="diy-fantasy-creature">DIY / FANTASY CREATURE</button>
+      <button class="chip" data-filter="reptile-feeding">REPTILE FEEDING</button>
+      <button class="chip" data-filter="hydraulic-press-destruction">HYDRAULIC PRESS DESTRUCTION</button>
+      <button class="chip" data-filter="pov-adventure">POV ADVENTURE</button>
+      <button class="chip" data-filter="fruit-transformation-timelabs">FRUIT TRANSFORMATION TIMELABS</button>
     </div>
 
     <div class="grid">
@@ -1414,6 +1647,50 @@ document.addEventListener('keydown',e=>{
 /* Keep the badge synchronized after login/logout and on page load */
 (async()=>{ await loadMyPrompts(); })();
 sb.auth.onAuthStateChange(()=>{ setTimeout(loadMyPrompts,50); });
+
+
+/* ===== Full category filtering + empty state ===== */
+(function(){
+  const filterWrap=document.querySelector('.filters');
+  const grid=document.querySelector('.grid');
+  if(!filterWrap||!grid)return;
+
+  let empty=document.getElementById('categoryEmptyState');
+  if(!empty){
+    empty=document.createElement('div');
+    empty.id='categoryEmptyState';
+    empty.style.display='none';
+    empty.style.gridColumn='1/-1';
+    empty.style.padding='34px 18px';
+    empty.style.textAlign='center';
+    empty.style.border='1px dashed #d8dbe2';
+    empty.style.borderRadius='16px';
+    empty.style.color='#7d8493';
+    empty.style.background='#fff';
+    empty.innerHTML='<strong style="display:block;color:#11141b;margin-bottom:5px">No prompts in this category yet.</strong><span style="font-size:11px">You can add prompts to this category later.</span>';
+    grid.appendChild(empty);
+  }
+
+  filterWrap.querySelectorAll('.chip').forEach(ch=>{
+    const clean=ch.cloneNode(true);
+    ch.replaceWith(clean);
+    clean.addEventListener('click',()=>{
+      filterWrap.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+      clean.classList.add('active');
+
+      const f=clean.dataset.filter;
+      let visible=0;
+      grid.querySelectorAll('.card').forEach(card=>{
+        const cats=(card.dataset.category||'').split(/\s+/);
+        const show=f==='all'||cats.includes(f);
+        card.style.display=show?'block':'none';
+        if(show)visible++;
+      });
+
+      empty.style.display=visible===0?'block':'none';
+    });
+  });
+})();
 
 </script>
 </body>
