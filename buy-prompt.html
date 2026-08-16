@@ -674,94 +674,159 @@ footer{background:#080a10;color:#8b93a2;padding:28px 0;font-size:10px}
 }
 
 
-/* ===== Cool Eye-Friendly Background Theme ===== */
+/* ===== CLEAN BLUE + PINK THEME ===== */
 :root{
-  --cool-bg:#f3f6fb;
-  --cool-bg-2:#eef2f9;
-  --cool-panel:#f8faff;
-  --cool-border:#dce3ee;
-  --cool-text:#111827;
-  --cool-muted:#6f7890;
+  --cbp-blue:#5b6cff;
+  --cbp-pink:#f0448d;
+  --cbp-purple:#8a5cf6;
+  --cbp-bg:#f7f9ff;
+  --cbp-panel:#ffffff;
+  --cbp-blue-soft:#eef4ff;
+  --cbp-pink-soft:#fff1f7;
+  --cbp-purple-soft:#f5f1ff;
+  --cbp-border:#e5e9f5;
+  --cbp-text:#141826;
+  --cbp-muted:#727b90;
 }
-
-/* Main light backgrounds */
 body{
   background:
-    radial-gradient(circle at 10% 10%, rgba(99,102,241,.06), transparent 28%),
-    radial-gradient(circle at 90% 0%, rgba(168,85,247,.05), transparent 24%),
-    linear-gradient(180deg,var(--cool-bg),var(--cool-bg-2)) !important;
+    radial-gradient(circle at 8% 10%,rgba(91,108,255,.10),transparent 25%),
+    radial-gradient(circle at 93% 16%,rgba(240,68,141,.09),transparent 26%),
+    linear-gradient(180deg,#f8fbff 0%,#fbf8ff 46%,#fff9fc 100%) !important;
+  color:var(--cbp-text)!important;
 }
-
-/* Header stays clean but softer than pure white */
 header{
-  background:rgba(248,250,255,.92) !important;
-  border-bottom:1px solid var(--cool-border) !important;
-  backdrop-filter:blur(16px);
+  background:rgba(255,255,255,.90)!important;
+  backdrop-filter:blur(14px)!important;
+  border-bottom:1px solid #e7ebf5!important;
+  box-shadow:0 6px 20px rgba(66,76,120,.035)!important;
 }
-
-/* Home light sections */
-.hero,
-.road,
-.explore,
-.store,
-.page,
-.promptPage{
-  background:
-    radial-gradient(circle at 12% 0%, rgba(92,103,255,.05), transparent 30%),
-    linear-gradient(180deg,#f8faff 0%,#f1f5fb 100%) !important;
+.logo,.authBrandLogo,.accountAvatar,.miniAvatar,.myPromptThumb,.lockIcon{
+  background:linear-gradient(135deg,var(--cbp-blue),var(--cbp-purple) 55%,var(--cbp-pink))!important;
 }
-
-/* Cards / prompt cards stay bright for contrast */
-.card,
-.storeCard,
-.promptCard,
-.myPromptsBox,
-.accountDropdown,
-.box{
-  background:#ffffff !important;
-  border-color:var(--cool-border) !important;
+.page,.promptPage{
+  background:transparent!important;
 }
-
-/* Prompt category area */
 .filters{
-  padding:18px !important;
-  border-radius:18px !important;
-  background:rgba(255,255,255,.58) !important;
-  border:1px solid rgba(220,227,238,.9) !important;
-  box-shadow:0 10px 30px rgba(31,41,55,.035) !important;
+  padding:4px 0 6px!important;
 }
 .chip{
-  background:#fbfcff !important;
-  border-color:#dbe2ec !important;
-  color:#586277 !important;
+  background:rgba(255,255,255,.84)!important;
+  border-color:#dfe5f2!important;
+  color:#5f687c!important;
+  box-shadow:0 3px 12px rgba(74,86,132,.035)!important;
 }
 .chip:hover{
-  background:#f3f5ff !important;
-  border-color:#b9c2d4 !important;
-  color:#111827 !important;
+  border-color:#c9d2ec!important;
+  color:#273049!important;
+  background:#fff!important;
 }
 .chip.active{
-  background:linear-gradient(135deg,#111827,#1f2937) !important;
-  color:#fff !important;
-  border-color:#111827 !important;
-  box-shadow:0 0 0 2px #f7f9ff,0 0 0 3px #7c6cff !important;
+  background:linear-gradient(135deg,#172036,#101521)!important;
+  color:#fff!important;
+  border-color:#111827!important;
+  box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(91,108,255,.45)!important;
 }
-
-/* Softer text */
-.intro p,.sub,.roadItem p,.card p,.storeCard p{
-  color:var(--cool-muted) !important;
+.card{
+  background:rgba(255,255,255,.92)!important;
+  border-color:#e4e9f4!important;
+  box-shadow:0 10px 28px rgba(66,76,120,.055)!important;
 }
-
-/* Inputs */
-.authForm input,
-.box input{
-  background:#fbfcff !important;
-  border-color:#dbe2ec !important;
+.card:hover{
+  box-shadow:0 18px 42px rgba(91,108,255,.10)!important;
 }
-
-/* Footer remains dark for contrast */
+.tag,.promptDetailTag{
+  background:linear-gradient(135deg,var(--cbp-blue-soft),var(--cbp-purple-soft))!important;
+  color:#5d57c8!important;
+  border:1px solid #e4e2ff!important;
+}
+.prompt,.promptDetailPrompt,.note{
+  background:linear-gradient(180deg,#f7f9ff,#fdf8fc)!important;
+  border:1px solid #e6e9f4!important;
+  color:#354057!important;
+}
+.note code{
+  background:#edf2ff!important;
+  color:#5f59d6!important;
+}
+.copy,.promptDetailCopy{
+  background:linear-gradient(135deg,#1a2030,#10141e)!important;
+  color:#fff!important;
+}
+.read,.promptDetailCloseBtn,.promptDetailClose{
+  background:#fff!important;
+  border-color:#dde4f0!important;
+  color:#1d2433!important;
+}
+.read:hover,.promptDetailCloseBtn:hover,.promptDetailClose:hover{
+  background:linear-gradient(135deg,var(--cbp-blue-soft),var(--cbp-pink-soft))!important;
+}
+.promptDetailBox,.box,.myPromptsBox,.accountDropdown{
+  background:linear-gradient(180deg,#ffffff 0%,#fbfcff 55%,#fffafd 100%)!important;
+  border-color:#e2e7f2!important;
+  box-shadow:0 30px 90px rgba(44,55,100,.18)!important;
+}
+.promptDetailContent,.authFormPanel{
+  background:linear-gradient(180deg,#ffffff 0%,#f9fbff 55%,#fff8fc 100%)!important;
+}
+.promptDetailImage,.preview,.authBrandPanel{
+  background:
+    radial-gradient(circle at 22% 18%,rgba(91,108,255,.33),transparent 28%),
+    radial-gradient(circle at 82% 20%,rgba(240,68,141,.25),transparent 26%),
+    linear-gradient(145deg,#12182b,#242147 52%,#35172e)!important;
+}
+.authForm input,.box input{
+  background:#fff!important;
+  border-color:#dfe5f2!important;
+}
+.authForm input:focus,.box input:focus{
+  border-color:var(--cbp-blue)!important;
+  box-shadow:0 0 0 3px rgba(91,108,255,.11)!important;
+}
+.googleAuthBtn{
+  background:#fff!important;
+  border-color:#dce3ef!important;
+}
+.googleAuthBtn:hover{
+  background:linear-gradient(135deg,#f7faff,#fff7fb)!important;
+  border-color:#ccd7eb!important;
+}
+.authPrimaryBtn,.promptBuyBtn,.btnGrad{
+  background:linear-gradient(100deg,var(--cbp-blue),var(--cbp-purple) 56%,var(--cbp-pink))!important;
+}
+.accountBtn{
+  background:rgba(255,255,255,.94)!important;
+  border-color:#dde4ef!important;
+}
+.accountDropdown{
+  background:linear-gradient(180deg,#ffffff,#fbfcff 65%,#fff9fc)!important;
+}
+.accountMenuItem:hover{
+  background:linear-gradient(135deg,var(--cbp-blue-soft),var(--cbp-pink-soft))!important;
+}
+.purchaseBadge{
+  background:linear-gradient(135deg,#edf2ff,#fff0f7)!important;
+  color:#6657d9!important;
+}
+.myPromptItem{
+  background:linear-gradient(135deg,#fbfcff,#fffafd)!important;
+  border-color:#e4e9f3!important;
+}
+.myPromptsEmpty,#categoryEmptyState{
+  background:rgba(255,255,255,.86)!important;
+  border-color:#dfe5f2!important;
+  color:#7a8296!important;
+}
+.promptLockOverlay{
+  background:linear-gradient(180deg,rgba(245,248,255,.66),rgba(255,244,250,.90))!important;
+}
+.promptLockWrap{
+  background:linear-gradient(180deg,#f4f7ff,#fff7fb)!important;
+  border-color:#e1e6f2!important;
+}
 footer{
-  background:#0a0d15 !important;
+  background:linear-gradient(135deg,#0b1020,#15132a 58%,#241023)!important;
+  color:#9ca7bd!important;
 }
 
 </style>
