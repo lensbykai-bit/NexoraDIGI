@@ -829,6 +829,246 @@ footer{
   color:#9ca7bd!important;
 }
 
+
+/* =========================================================
+   NEXORA — SOFT PURPLE LOGO THEME
+   Applies to the whole Buy Prompt page and all white panels.
+   ========================================================= */
+:root{
+  --nexora-bg-1:#f7f3ff;
+  --nexora-bg-2:#fbf8ff;
+  --nexora-bg-3:#f1ebff;
+  --nexora-panel:#fcfaff;
+  --nexora-panel-2:#f8f4ff;
+  --nexora-line:#ddd4f4;
+  --nexora-text:#161827;
+  --nexora-muted:#747b90;
+  --nexora-purple:#7457f4;
+  --nexora-purple-2:#9b4df0;
+  --nexora-pink:#e93486;
+}
+
+/* Page background */
+html,body{
+  min-height:100%;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(103,91,255,.15), transparent 24%),
+    radial-gradient(circle at 88% 14%, rgba(233,52,134,.10), transparent 23%),
+    radial-gradient(circle at 52% 70%, rgba(155,77,240,.08), transparent 30%),
+    linear-gradient(180deg,var(--nexora-bg-1) 0%,var(--nexora-bg-2) 46%,var(--nexora-bg-3) 100%) !important;
+  color:var(--nexora-text);
+}
+.page{
+  background:transparent !important;
+}
+
+/* Header */
+header{
+  background:rgba(252,250,255,.88) !important;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(116,87,244,.12) !important;
+  box-shadow:0 8px 30px rgba(92,67,203,.05);
+}
+
+/* Intro */
+.intro{
+  position:relative;
+}
+.intro:before{
+  content:"";
+  position:absolute;
+  width:210px;height:210px;border-radius:50%;
+  left:-90px;top:-40px;
+  background:radial-gradient(circle,rgba(116,87,244,.10),transparent 68%);
+  pointer-events:none;
+}
+.intro h1{
+  color:#151827 !important;
+}
+.intro p{
+  color:#727a90 !important;
+}
+
+/* Category buttons */
+.filters{
+  padding:18px;
+  margin-left:-18px;
+  margin-right:-18px;
+  border-radius:24px;
+  background:rgba(252,250,255,.42);
+  border:1px solid rgba(116,87,244,.08);
+  box-shadow:0 16px 45px rgba(102,73,190,.045);
+}
+.chip{
+  background:rgba(255,255,255,.76) !important;
+  border:1px solid #ded6f4 !important;
+  color:#626a80 !important;
+  box-shadow:0 4px 14px rgba(83,64,173,.035);
+}
+.chip:hover{
+  background:#f4efff !important;
+  border-color:#cfc3f5 !important;
+  color:#5847b8 !important;
+}
+.chip.active{
+  color:#fff !important;
+  border-color:transparent !important;
+  background:linear-gradient(120deg,#5368ff 0%,#7b4bf5 54%,#e93486 100%) !important;
+  box-shadow:
+    0 0 0 2px #f8f4ff,
+    0 0 0 4px rgba(116,87,244,.22),
+    0 10px 24px rgba(99,74,212,.18) !important;
+}
+
+/* Prompt cards — all panels */
+.grid{
+  gap:20px !important;
+}
+.card{
+  background:linear-gradient(180deg,#fff 0%,#fbf8ff 100%) !important;
+  border:1px solid #ddd4f3 !important;
+  border-radius:24px !important;
+  box-shadow:0 16px 38px rgba(82,62,165,.08) !important;
+  overflow:hidden;
+}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#cfc2f5 !important;
+  box-shadow:0 24px 50px rgba(82,62,165,.13) !important;
+}
+.cardPreview,.preview{
+  background:
+    radial-gradient(circle at 22% 18%,rgba(91,106,255,.28),transparent 27%),
+    radial-gradient(circle at 84% 20%,rgba(233,52,134,.18),transparent 24%),
+    linear-gradient(135deg,#242758 0%,#322967 52%,#43244f 100%) !important;
+}
+.simpleCardBody,.body{
+  background:linear-gradient(180deg,#fff 0%,#fbf8ff 100%) !important;
+}
+.simpleCardBody h3,.card h3{
+  color:#151827 !important;
+}
+
+/* Help/info notes */
+.note{
+  background:linear-gradient(180deg,#fcfaff,#f7f2ff) !important;
+  border:1px solid #ded4f4 !important;
+  color:#657087 !important;
+  box-shadow:0 10px 30px rgba(82,62,165,.05) !important;
+}
+.note code{
+  background:#eee7ff !important;
+  color:#6847dc !important;
+}
+
+/* Account dropdown */
+.accountBtn,
+.accountDropdown,
+.accountProfile,
+.accountMenuItem{
+  border-color:#e0d8f2 !important;
+}
+.accountBtn,
+.accountDropdown{
+  background:rgba(253,251,255,.96) !important;
+  box-shadow:0 18px 48px rgba(75,57,155,.12) !important;
+}
+.accountMenuItem:hover{
+  background:#f2edff !important;
+}
+.purchaseBadge{
+  background:#ebe4ff !important;
+  color:#6849db !important;
+}
+
+/* Auth white side */
+.authFormPanel{
+  background:
+    radial-gradient(circle at 90% 10%,rgba(233,52,134,.07),transparent 25%),
+    linear-gradient(180deg,#fdfbff 0%,#f7f2ff 100%) !important;
+}
+.authForm input,
+.googleAuthBtn{
+  background:#fff !important;
+  border-color:#ddd5ef !important;
+}
+.authForm input:focus{
+  border-color:#8467ef !important;
+  box-shadow:0 0 0 4px rgba(116,87,244,.10) !important;
+}
+
+/* Prompt detail popup — change the big white side too */
+.promptDetailBox{
+  background:linear-gradient(180deg,#fefcff 0%,#f6f1ff 100%) !important;
+  border-color:#dcd2f4 !important;
+}
+.promptDetailContent{
+  background:
+    radial-gradient(circle at 92% 10%,rgba(233,52,134,.07),transparent 24%),
+    linear-gradient(180deg,#fefcff 0%,#f7f2ff 100%) !important;
+}
+.promptDetailTag{
+  background:#ede6ff !important;
+  color:#684bd3 !important;
+}
+.promptLockWrap,
+.promptDetailPrompt{
+  background:#f0ebfa !important;
+  border-color:#dfd6f2 !important;
+}
+.promptLockOverlay{
+  background:linear-gradient(180deg,rgba(250,247,255,.56),rgba(247,241,255,.94)) !important;
+}
+.promptDetailClose,
+.promptDetailCloseBtn{
+  background:#fdfbff !important;
+  border-color:#ddd5ef !important;
+}
+.promptDetailClose:hover,
+.promptDetailCloseBtn:hover{
+  background:#f1ebff !important;
+}
+
+/* Empty-category panel */
+#categoryEmptyState{
+  background:linear-gradient(180deg,#fcfaff,#f7f2ff) !important;
+  border:1px dashed #d8cef2 !important;
+  color:#757d90 !important;
+  box-shadow:0 12px 32px rgba(82,62,165,.05);
+}
+
+/* My Prompts popup */
+.myPromptsBox{
+  background:linear-gradient(180deg,#fefcff,#f6f1ff) !important;
+  border-color:#ddd4f3 !important;
+}
+.myPromptItem{
+  background:#fbf8ff !important;
+  border-color:#e1d8f4 !important;
+}
+.myPromptsEmpty{
+  background:#fbf8ff;
+  border-color:#d9cff0 !important;
+}
+
+/* Footer */
+footer{
+  background:linear-gradient(135deg,#121629,#21183b) !important;
+}
+
+/* Mobile */
+@media(max-width:640px){
+  .filters{
+    padding:12px;
+    margin-left:-8px;
+    margin-right:-8px;
+    border-radius:18px;
+  }
+  .card{
+    border-radius:20px !important;
+  }
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
