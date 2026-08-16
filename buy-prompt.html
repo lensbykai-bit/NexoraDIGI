@@ -599,6 +599,59 @@ footer{background:#080a10;color:#8b93a2;padding:28px 0;font-size:10px}
   .accountDropdown{right:-2px}
 }
 
+
+/* ===== My Prompts Database UI ===== */
+.myPromptsModal{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(6,8,15,.78);backdrop-filter:blur(14px);
+  align-items:center;justify-content:center;padding:20px
+}
+.myPromptsModal.open{display:flex}
+.myPromptsBox{
+  width:min(760px,100%);max-height:86vh;overflow:auto;
+  background:#fff;color:#11141b;border-radius:24px;
+  border:1px solid #e2e4e9;box-shadow:0 32px 90px rgba(0,0,0,.28);
+  padding:26px
+}
+.myPromptsHead{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.myPromptsHead h3{font:700 28px "Space Grotesk";margin:0 0 4px}
+.myPromptsHead p{margin:0;color:#7c8493;font-size:12px}
+.myPromptsClose{
+  width:38px;height:38px;border-radius:50%;border:1px solid #e0e2e7;
+  background:#fff;color:#111;font-size:20px;cursor:pointer
+}
+.myPromptsList{display:grid;gap:10px;margin-top:20px}
+.myPromptItem{
+  display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:12px;
+  border:1px solid #e7e8ec;background:#fafafb;border-radius:14px;padding:10px
+}
+.myPromptThumb{
+  width:56px;height:56px;border-radius:11px;overflow:hidden;
+  background:linear-gradient(135deg,#5368ff,#813ef2 58%,#ef3478);
+  display:grid;place-items:center;color:#fff;font-weight:800
+}
+.myPromptThumb img{width:100%;height:100%;object-fit:cover}
+.myPromptInfo strong{display:block;font-size:12px}
+.myPromptInfo small{display:block;margin-top:3px;color:#818999;font-size:9px}
+.myPromptOpen{
+  border:0;background:#0b0e17;color:#fff;border-radius:999px;
+  padding:9px 13px;font-size:9px;font-weight:800;cursor:pointer
+}
+.myPromptsEmpty{
+  border:1px dashed #d9dce3;border-radius:14px;padding:28px 18px;
+  text-align:center;color:#7d8493;font-size:11px
+}
+.myPromptsError{
+  background:#fff0f2;border:1px solid #ffd7de;color:#b22d45;
+  border-radius:12px;padding:12px;font-size:10px
+}
+@media(max-width:560px){
+  .myPromptsBox{padding:20px}
+  .myPromptItem{grid-template-columns:48px 1fr}
+  .myPromptThumb{width:48px;height:48px}
+  .myPromptOpen{grid-column:1/-1;width:100%}
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -635,7 +688,7 @@ footer{background:#080a10;color:#8b93a2;padding:28px 0;font-size:10px}
       </div>
     </div>
 
-    <button class="accountMenuItem" type="button" onclick="window.location.href='buy-prompt.html'">
+    <button class="accountMenuItem" id="myPromptsBtn" type="button">
       🛍️ My Prompts <span class="purchaseBadge" id="purchaseCount">0</span>
     </button>
     <button class="accountMenuItem" type="button" onclick="window.location.href='buy-prompt.html'">
@@ -890,6 +943,22 @@ A vertical 9:16 stylized 3D animated emotional story...</div>
 </div>
 
 <footer><div class="wrap">© 2026 Nexora Digital · Prompt Store</div></footer>
+
+<div class="myPromptsModal" id="myPromptsModal" aria-hidden="true">
+  <div class="myPromptsBox">
+    <div class="myPromptsHead">
+      <div>
+        <h3>My Prompts</h3>
+        <p>Prompts purchased with this Google account.</p>
+      </div>
+      <button class="myPromptsClose" id="myPromptsClose" type="button">×</button>
+    </div>
+    <div class="myPromptsList" id="myPromptsList">
+      <div class="myPromptsEmpty">Loading your purchases…</div>
+    </div>
+  </div>
+</div>
+
 
 <script>
 document.querySelectorAll('.chip').forEach(ch=>ch.onclick=()=>{
@@ -1236,6 +1305,115 @@ document.getElementById('accountLogoutBtn')?.addEventListener('click',async()=>{
 sb.auth.onAuthStateChange((event,session)=>{
   renderAccountState(session,event==='SIGNED_IN');
 });
+
+
+/* ===== Purchases from Supabase ===== */
+async function loadMyPrompts(){
+  const countEl=document.getElementById('purchaseCount');
+  const list=document.getElementById('myPromptsList');
+
+  const {data:{session}}=await sb.auth.getSession();
+  const user=session?.user;
+
+  if(!user){
+    if(countEl) countEl.textContent='0';
+    if(list) list.innerHTML='<div class="myPromptsEmpty">Please sign in to see your prompts.</div>';
+    return [];
+  }
+
+  const {data,error}=await sb
+    .from('purchases')
+    .select(`
+      id,
+      purchased_at,
+      product_id,
+      products (
+        id,
+        title,
+        slug,
+        category,
+        image_url,
+        price_usd
+      )
+    `)
+    .eq('user_id',user.id)
+    .order('purchased_at',{ascending:false});
+
+  if(error){
+    console.error('Could not load purchases:',error);
+    if(countEl) countEl.textContent='0';
+    if(list) list.innerHTML='<div class="myPromptsError">Could not load My Prompts. Please refresh and try again.</div>';
+    return [];
+  }
+
+  const rows=data||[];
+  if(countEl) countEl.textContent=String(rows.length);
+
+  if(list){
+    if(rows.length===0){
+      list.innerHTML='<div class="myPromptsEmpty">You have not purchased any prompts yet.</div>';
+    }else{
+      list.innerHTML=rows.map(row=>{
+        const p=row.products||{};
+        const title=p.title||'Purchased Prompt';
+        const category=p.category||'PROMPT';
+        const thumb=p.image_url
+          ? `<div class="myPromptThumb"><img src="${p.image_url}" alt=""></div>`
+          : `<div class="myPromptThumb">${title.trim().charAt(0).toUpperCase()}</div>`;
+
+        return `
+          <div class="myPromptItem">
+            ${thumb}
+            <div class="myPromptInfo">
+              <strong>${title}</strong>
+              <small>${category}</small>
+            </div>
+            <button class="myPromptOpen" type="button" data-product-slug="${p.slug||''}">
+              Open Prompt
+            </button>
+          </div>`;
+      }).join('');
+
+      list.querySelectorAll('.myPromptOpen').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const slug=btn.dataset.productSlug||'';
+          window.location.href='buy-prompt.html'+(slug?`#${encodeURIComponent(slug)}`:'');
+        });
+      });
+    }
+  }
+
+  return rows;
+}
+
+function openMyPrompts(){
+  const modal=document.getElementById('myPromptsModal');
+  if(!modal)return;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  loadMyPrompts();
+}
+function closeMyPrompts(){
+  const modal=document.getElementById('myPromptsModal');
+  if(!modal)return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+
+document.getElementById('myPromptsBtn')?.addEventListener('click',openMyPrompts);
+document.getElementById('myPromptsClose')?.addEventListener('click',closeMyPrompts);
+document.getElementById('myPromptsModal')?.addEventListener('click',e=>{
+  if(e.target.id==='myPromptsModal') closeMyPrompts();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeMyPrompts();
+});
+
+/* Keep the badge synchronized after login/logout and on page load */
+(async()=>{ await loadMyPrompts(); })();
+sb.auth.onAuthStateChange(()=>{ setTimeout(loadMyPrompts,50); });
 
 </script>
 </body>
