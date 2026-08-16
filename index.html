@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  </head>​​ <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
 <body> 
 <header class="header">
   <div class="wrap nav">
@@ -152,32 +153,21 @@
   </div>
   <div class="wrap bottom">© <span id="year"></span> Nexora Digital · Built for GitHub Pages</div>
 </footer>
-<script src="script.js"></script>
-</body>
-</html>
 <script src="./script.js"></script>
 </body>
 </html>
-# Nexora Digital GitHub Theme
+# Nexora Digital — Fixed GitHub Pages Files
 
-Modern one-page static website for GitHub Pages.
+Upload these three files to the ROOT of your GitHub repository:
 
-## Publish
-1. Create a GitHub repository.
-2. Upload `index.html`, `styles.css`, and `script.js` to the repository root.
-3. Go to **Settings → Pages**.
-4. Choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`.
-6. Save and wait for GitHub Pages to publish.
+- index.html
+- styles.css
+- script.js
 
-## Customize
-Edit `index.html` to change:
-- Brand text
-- Courses and services
-- Button links
-- Contact email (`hello@nexoradigital.com`)
-
-Edit `styles.css` to change colors and layout.
+Important:
+- Replace the old files with these fixed versions.
+- Keep GitHub Pages source as: main / (root)
+- Wait for the Pages deployment to finish, then refresh the website with Ctrl+F5.
 
 const btn=document.querySelector('.menuBtn'),nav=document.querySelector('.nav');
 if(btn){btn.addEventListener('click',()=>nav.classList.toggle('open'))}
