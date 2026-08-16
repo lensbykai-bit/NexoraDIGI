@@ -1069,6 +1069,165 @@ footer{
   }
 }
 
+
+/* ===== Category Popup Panel ===== */
+.categoryModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:420;
+  background:rgba(15,12,30,.72);
+  backdrop-filter:blur(12px);
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.categoryModal.open{display:flex}
+
+.categoryPanel{
+  width:min(1120px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 8% 8%,rgba(106,89,255,.12),transparent 26%),
+    radial-gradient(circle at 92% 8%,rgba(233,52,134,.08),transparent 24%),
+    linear-gradient(180deg,#fefcff 0%,#f7f2ff 100%);
+  border:1px solid #ddd4f3;
+  box-shadow:0 40px 120px rgba(34,22,78,.34);
+  padding:26px;
+}
+
+.categoryPanelHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:22px;
+}
+
+.categoryPanelKicker{
+  font:600 9px monospace;
+  letter-spacing:2px;
+  color:#7556ec;
+  margin-bottom:7px;
+}
+.categoryPanelTitle{
+  margin:0;
+  font:700 34px/1.05 "Space Grotesk";
+  letter-spacing:-1.6px;
+  color:#161827;
+}
+.categoryPanelSub{
+  margin:8px 0 0;
+  font-size:12px;
+  color:#7b8293;
+}
+
+.categoryPanelClose{
+  flex:0 0 auto;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid #ddd5ef;
+  background:#fff;
+  color:#171a25;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(55,40,120,.06);
+}
+.categoryPanelClose:hover{background:#f2ecff}
+
+.categoryPanelGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.categoryPopupCard{
+  cursor:pointer;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid #ddd4f3;
+  background:linear-gradient(180deg,#fff 0%,#fbf8ff 100%);
+  box-shadow:0 16px 38px rgba(82,62,165,.08);
+  transition:.22s ease;
+}
+.categoryPopupCard:hover{
+  transform:translateY(-5px);
+  border-color:#cfc2f5;
+  box-shadow:0 24px 50px rgba(82,62,165,.13);
+}
+.categoryPopupImage{
+  min-height:250px;
+  background:
+    radial-gradient(circle at 22% 18%,rgba(91,106,255,.28),transparent 27%),
+    radial-gradient(circle at 84% 20%,rgba(233,52,134,.18),transparent 24%),
+    linear-gradient(135deg,#242758 0%,#322967 52%,#43244f 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:#fff;
+  font:700 12px "Space Grotesk";
+  letter-spacing:1px;
+}
+.categoryPopupImage img{
+  width:100%;
+  height:100%;
+  min-height:250px;
+  object-fit:cover;
+  display:block;
+}
+.categoryPopupBody{
+  padding:15px 16px 18px;
+}
+.categoryPopupBody h3{
+  margin:0;
+  font:700 17px/1.25 "Space Grotesk";
+  color:#171a25;
+}
+
+.categoryEmpty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:54px 22px;
+  border-radius:20px;
+  border:1px dashed #d8cef2;
+  background:rgba(255,255,255,.64);
+  color:#7a8090;
+}
+.categoryEmptyIcon{
+  width:64px;
+  height:64px;
+  margin:0 auto 14px;
+  border-radius:20px;
+  display:grid;
+  place-items:center;
+  font-size:28px;
+  background:linear-gradient(135deg,#5368ff,#7b4bf5 55%,#e93486);
+  color:#fff;
+  box-shadow:0 16px 34px rgba(100,74,210,.22);
+}
+.categoryEmpty strong{
+  display:block;
+  margin-bottom:6px;
+  color:#181b26;
+  font:700 18px "Space Grotesk";
+}
+
+@media(max-width:900px){
+  .categoryPanelGrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .categoryModal{padding:10px}
+  .categoryPanel{padding:18px;border-radius:22px}
+  .categoryPanelGrid{grid-template-columns:1fr}
+  .categoryPanelTitle{font-size:27px}
+  .categoryPopupImage{min-height:220px}
+  .categoryPopupImage img{min-height:220px}
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -1477,6 +1636,21 @@ A vertical 9:16 stylized 3D animated emotional story...</div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<div class="categoryModal" id="categoryModal" aria-hidden="true">
+  <div class="categoryPanel" role="dialog" aria-modal="true">
+    <div class="categoryPanelHead">
+      <div>
+        <div class="categoryPanelKicker">PROMPT CATEGORY</div>
+        <h2 class="categoryPanelTitle" id="categoryPanelTitle">Category</h2>
+        <p class="categoryPanelSub">Choose an image to view the full prompt.</p>
+      </div>
+      <button class="categoryPanelClose" id="categoryPanelClose" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="categoryPanelGrid" id="categoryPanelGrid"></div>
   </div>
 </div>
 
@@ -1994,6 +2168,113 @@ sb.auth.onAuthStateChange(()=>{ setTimeout(loadMyPrompts,50); });
 
       empty.style.display=visible===0?'block':'none';
     });
+  });
+})();
+
+
+/* ===== Every category opens a popup panel ===== */
+(function(){
+  const modal=document.getElementById('categoryModal');
+  const panelTitle=document.getElementById('categoryPanelTitle');
+  const panelGrid=document.getElementById('categoryPanelGrid');
+  const closeBtn=document.getElementById('categoryPanelClose');
+  const filters=document.querySelector('.filters');
+
+  if(!modal || !panelGrid || !filters) return;
+
+  function normalizeCategoryLabel(label){
+    return (label||'').trim();
+  }
+
+  function cardMatches(card, filter){
+    if(filter==='all') return true;
+    const cats=(card.dataset.category||'').split(/\s+/).filter(Boolean);
+    return cats.includes(filter);
+  }
+
+  function makePopupCard(card){
+    const title=card.querySelector('h3')?.innerText.trim() || 'Prompt';
+    const image=card.dataset.image || '';
+    const el=document.createElement('article');
+    el.className='categoryPopupCard';
+
+    const imageHtml=image
+      ? '<img src="'+image.replace(/"/g,'&quot;')+'" alt="">'
+      : '<span>CLICK TO VIEW</span>';
+
+    el.innerHTML=
+      '<div class="categoryPopupImage">'+imageHtml+'</div>'+
+      '<div class="categoryPopupBody"><h3>'+title+'</h3></div>';
+
+    el.addEventListener('click',()=>{
+      closeCategoryModal();
+      setTimeout(()=>{
+        if(typeof openPromptDetail==='function') openPromptDetail(card);
+        else card.click();
+      },80);
+    });
+
+    return el;
+  }
+
+  function openCategoryModal(button){
+    const filter=button.dataset.filter || 'all';
+    const label=normalizeCategoryLabel(button.textContent) || 'ALL';
+
+    panelTitle.textContent=label;
+    panelGrid.innerHTML='';
+
+    const cards=[...document.querySelectorAll('.grid .card')];
+    const matches=cards.filter(card=>cardMatches(card,filter));
+
+    if(matches.length===0){
+      panelGrid.innerHTML=
+        '<div class="categoryEmpty">'+
+          '<div class="categoryEmptyIcon">✦</div>'+
+          '<strong>'+label+'</strong>'+
+          '<span>No prompt images have been added to this category yet.</span>'+
+        '</div>';
+    }else{
+      matches.forEach(card=>panelGrid.appendChild(makePopupCard(card)));
+    }
+
+    filters.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+    button.classList.add('active');
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+
+  function closeCategoryModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  // Remove old category listeners by replacing each button with a clone.
+  const oldButtons=[...filters.querySelectorAll('.chip')];
+  oldButtons.forEach(oldBtn=>{
+    const btn=oldBtn.cloneNode(true);
+    oldBtn.replaceWith(btn);
+    btn.addEventListener('click',(e)=>{
+      e.preventDefault();
+      e.stopPropagation();
+      openCategoryModal(btn);
+    });
+  });
+
+  closeBtn?.addEventListener('click',closeCategoryModal);
+  modal.addEventListener('click',(e)=>{
+    if(e.target===modal) closeCategoryModal();
+  });
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape' && modal.classList.contains('open')) closeCategoryModal();
+  });
+
+  // Keep original prompt grid visible instead of filtering it away.
+  document.querySelectorAll('.grid .card').forEach(card=>{
+    card.style.display='block';
   });
 })();
 
