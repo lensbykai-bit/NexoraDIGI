@@ -209,8 +209,12 @@ document.getElementById('cartItems')?.addEventListener('click', event => {
 
 document.getElementById('browsePromptsBtn')?.addEventListener('click', () => {
   closeModal(document.getElementById('cartModal'));
-  document.getElementById('prompts')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  setTimeout(highlightPromptSection, 450);
+  const promptSection = document.getElementById('prompts');
+  if (document.body.classList.contains('market-page') && promptSection) {
+    promptSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    window.location.href = 'prompt-marketplace.html#prompts';
+  }
 });
 
 document.getElementById('checkoutBtn')?.addEventListener('click', () => {

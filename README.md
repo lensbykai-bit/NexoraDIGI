@@ -74,3 +74,8 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 ## Version 12
 - Temporarily removed the 2,500+ community proof row.
 - Temporarily removed the five-item feature/trust strip below the hero.
+
+
+## Version 13
+- `ទិញ PROMPT` opens `prompt-marketplace.html` as a separate marketplace page.
+- Marketplace includes category chips, search, 12 prompt cards, cart integration, Login / Sign Up, and responsive design.
