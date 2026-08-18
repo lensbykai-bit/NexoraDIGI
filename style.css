@@ -181,3 +181,32 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
   .main-nav>a{align-items:flex-start}
   .main-nav>a .nav-main{display:block}
 }
+
+
+/* Version 8 — move actions slightly left to align with menu group */
+@media(min-width:821px){
+  .nav-wrap{
+    justify-content:flex-start;
+    gap:24px;
+  }
+  .main-nav{
+    margin:0 0 0 78px;
+    flex:0 0 auto;
+    gap:26px;
+  }
+  .nav-actions{
+    margin-left:24px;
+    gap:14px;
+    flex:0 0 auto;
+    justify-content:flex-start;
+  }
+  .nav-actions .icon-btn,
+  .nav-actions .cart-btn,
+  .nav-actions .btn{
+    align-self:center;
+  }
+}
+@media(min-width:821px) and (max-width:1180px){
+  .main-nav{margin-left:48px; gap:20px;}
+  .nav-actions{margin-left:18px; gap:12px;}
+}
