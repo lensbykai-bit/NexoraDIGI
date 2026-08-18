@@ -27,17 +27,17 @@
 
       <nav class="main-nav" id="mainNav">
         <a class="active" href="https://lensbykai-bit.github.io/NexoraDIGI/#home">ទំព័រដើម</a>
-        <a href="buy-prompt.html">Buy Prompt</a>
-        <a href="#" class="coming-soon-link" data-soon-title="Buy Tax">Buy Tax <span class="nav-note">(Coming soon)</span></a>
-        <a href="#" class="coming-soon-link" data-soon-title="Buy EIN">Buy EIN <span class="nav-note">(Coming soon)</span></a>
-        <a href="#" class="coming-soon-link" data-soon-title="Buy TikTok Account">Buy TikTok Account <span class="nav-note">(Coming soon)</span></a>
+        <a href="#prompts" class="buy-prompt-nav">Buy Prompt</a>
+        <span class="nav-static">Buy Tax <span class="nav-note">(Coming soon)</span></span>
+        <span class="nav-static">Buy EIN <span class="nav-note">(Coming soon)</span></span>
+        <span class="nav-static">Buy TikTok Account <span class="nav-note">(Coming soon)</span></span>
         <a href="#contact">ទំនាក់ទំនង</a>
       </nav>
 
       <div class="nav-actions">
         <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
         <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛒<span id="cartCount">0</span></button>
-        <button class="btn btn-sm btn-primary" data-open="loginModal">ចូល / Login</button>
+        <button class="btn btn-sm btn-primary" data-open="loginModal">Login / Sign Up</button>
       </div>
     </div>
   </header>
@@ -51,7 +51,7 @@
           <p>វគ្គចំណេះដឹងអំពី Social Media, Content Creation, Digital Products និង AI Prompt ដែលរៀបចំឲ្យងាយយល់ និងងាយអនុវត្ត។</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#courses">ចាប់ផ្តើមរៀន <span>→</span></a>
-            <a class="btn btn-soft" href="buy-prompt.html">មើល Buy Prompt <span>✦</span></a>
+            <a class="btn btn-soft buy-prompt-jump" href="#prompts">មើល Buy Prompt <span>✦</span></a>
           </div>
           <div class="hero-proof">
             <div class="avatars" aria-label="community avatars">
@@ -197,7 +197,7 @@
         <p>Theme សម្រាប់បង្កើតវេបសាយលក់មេរៀន ចំណេះដឹង Digital និង AI Prompt។ កែអក្សរ ពណ៌ និងផលិតផលបានងាយ។</p>
         <div class="social-row"><a href="#">f</a><a href="#">♪</a><a href="#">▶</a><a href="#">◎</a><a href="#">✈</a></div>
       </div>
-      <div><h4>រុករក</h4><a href="https://lensbykai-bit.github.io/NexoraDIGI/#home">ទំព័រដើម</a><a href="buy-prompt.html">Buy Prompt</a><a href="#" class="coming-soon-link" data-soon-title="Buy Tax">Buy Tax (Coming soon)</a><a href="#" class="coming-soon-link" data-soon-title="Buy EIN">Buy EIN (Coming soon)</a></div>
+      <div><h4>រុករក</h4><a href="https://lensbykai-bit.github.io/NexoraDIGI/#home">ទំព័រដើម</a><a href="#prompts">Buy Prompt</a><span class="footer-static">Buy Tax (Coming soon)</span><span class="footer-static">Buy EIN (Coming soon)</span></div>
       <div><h4>ជំនួយ</h4><a href="#">សំណួរញឹកញាប់</a><a href="#">គោលការណ៍ឯកជនភាព</a><a href="#">លក្ខខណ្ឌប្រើប្រាស់</a><a href="#contact">ទំនាក់ទំនង</a></div>
       <div><h4>ទំនាក់ទំនង</h4><p>✉ your@email.com</p><p>☎ +855 XX XXX XXX</p><p>✈ @yourtelegram</p><p>⌖ Cambodia</p></div>
     </div>
@@ -219,29 +219,67 @@
     </div>
   </div>
 
-  <div class="modal" id="comingSoonModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-card">
-      <button class="modal-close" data-close>×</button>
-      <span class="modal-badge">COMING SOON</span>
-      <h3 id="comingSoonTitle">Feature coming soon</h3>
-      <p id="comingSoonText">Section នេះកំពុងរៀបចំ និងនឹងបើកប្រើនៅពេលឆាប់ៗនេះ។ បើចង់ ខ្ញុំអាចភ្ជាប់វាជា payment page ឬ product page ពិតៗជំហានបន្ទាប់បាន។</p>
-      <button class="btn btn-primary btn-block" data-close>យល់ព្រម</button>
-    </div>
-  </div>
 
   <div class="modal" id="loginModal" aria-hidden="true">
     <div class="modal-backdrop" data-close></div>
-    <div class="modal-card login-card">
+    <div class="modal-card auth-card">
       <button class="modal-close" data-close>×</button>
-      <span class="modal-badge">WELCOME BACK</span>
-      <h3>ចូលគណនី</h3>
-      <form id="loginForm">
-        <label>អ៊ីមែល<input type="email" placeholder="name@example.com" required></label>
-        <label>ពាក្យសម្ងាត់<input type="password" placeholder="••••••••" required></label>
-        <button class="btn btn-primary btn-block" type="submit">ចូល / Login</button>
-      </form>
-      <small class="demo-note">Demo UI only — connect to your authentication service later.</small>
+      <div class="auth-brand-mark"><img src="assets/logo.svg" alt="PINKA logo"><div><strong>PINKA</strong><small>Member Access</small></div></div>
+      <div class="auth-tabs" role="tablist" aria-label="Login or Sign Up">
+        <button class="auth-tab active" type="button" data-auth-tab="login">Login</button>
+        <button class="auth-tab" type="button" data-auth-tab="signup">Sign Up</button>
+      </div>
+
+      <div class="auth-panel active" data-auth-panel="login">
+        <span class="modal-badge">WELCOME BACK</span>
+        <h3>ចូលគណនី</h3>
+        <p>ចូលទៅកាន់គណនីរបស់អ្នក ដើម្បីគ្រប់គ្រងការទិញ និង Digital Products។</p>
+        <form id="loginForm">
+          <label>អ៊ីមែល<input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label>
+          <label>ពាក្យសម្ងាត់<input type="password" name="password" placeholder="••••••••" autocomplete="current-password" minlength="6" required></label>
+          <div class="auth-row"><label class="remember-check"><input type="checkbox"> <span>ចងចាំខ្ញុំ</span></label><button class="text-btn" type="button" id="forgotPasswordBtn">ភ្លេចពាក្យសម្ងាត់?</button></div>
+          <button class="btn btn-primary btn-block" type="submit">ចូល / Login</button>
+        </form>
+        <div class="auth-switch-copy">មិនទាន់មានគណនី? <button type="button" class="text-btn" data-switch-auth="signup">បង្កើតគណនី</button></div>
+      </div>
+
+      <div class="auth-panel" data-auth-panel="signup">
+        <span class="modal-badge">CREATE ACCOUNT</span>
+        <h3>បង្កើតគណនីថ្មី</h3>
+        <p>បំពេញព័ត៌មានខាងក្រោម ដើម្បីចាប់ផ្តើមគណនី PINKA របស់អ្នក។</p>
+        <form id="signupForm">
+          <label>ឈ្មោះ<input type="text" name="name" placeholder="ឈ្មោះរបស់អ្នក" autocomplete="name" minlength="2" required></label>
+          <label>អ៊ីមែល<input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label>
+          <label>ពាក្យសម្ងាត់<input type="password" name="password" placeholder="យ៉ាងតិច 6 តួអក្សរ" autocomplete="new-password" minlength="6" required></label>
+          <label>បញ្ជាក់ពាក្យសម្ងាត់<input type="password" name="confirmPassword" placeholder="បញ្ចូលម្តងទៀត" autocomplete="new-password" minlength="6" required></label>
+          <label class="terms-check"><input type="checkbox" name="terms" required> <span>ខ្ញុំយល់ព្រមតាមលក្ខខណ្ឌ និងគោលការណ៍ឯកជនភាព</span></label>
+          <button class="btn btn-primary btn-block" type="submit">បង្កើតគណនី / Sign Up</button>
+        </form>
+        <div class="auth-switch-copy">មានគណនីរួចហើយ? <button type="button" class="text-btn" data-switch-auth="login">Login</button></div>
+      </div>
+      <small class="demo-note">Demo front-end UI — ភ្ជាប់ Firebase, Supabase ឬ backend ពេលចង់ប្រើ Login ពិតប្រាកដ។</small>
+    </div>
+  </div>
+
+  <div class="modal" id="cartModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card cart-modal-card">
+      <button class="modal-close" data-close>×</button>
+      <div class="cart-modal-head">
+        <div class="cart-title-icon">🛒</div>
+        <div><span class="modal-badge">YOUR SHOPPING CART</span><h3>កន្ត្រកទិញ</h3><p>ពិនិត្យផលិតផល ចំនួន និងតម្លៃមុនពេលបន្តការទូទាត់។</p></div>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty">
+        <div>🛍️</div><strong>កន្ត្រកនៅទទេ</strong><p>ជ្រើសរើស Prompt ដែលអ្នកចង់ទិញពី PROMPT MARKETPLACE។</p>
+        <button class="btn btn-soft" id="browsePromptsBtn" type="button">មើល Prompt</button>
+      </div>
+      <div class="cart-summary" id="cartSummary">
+        <div><span>ចំនួនផលិតផល</span><strong id="cartItemCount">0</strong></div>
+        <div><span>តម្លៃសរុប</span><strong id="cartSubtotal">$0.00</strong></div>
+        <div class="cart-total-row"><span>សរុបទាំងអស់</span><strong id="cartTotal">$0.00</strong></div>
+        <button class="btn btn-primary btn-block" id="checkoutBtn" type="button">បន្តទៅការទូទាត់</button>
+      </div>
     </div>
   </div>
 

@@ -56,3 +56,11 @@ Change `data-title`, `data-price`, title, description, and price.
 ## Important
 
 This is a **front-end theme**. The login and checkout are demo UI only. For real payments, accounts, order history, or protected downloads, connect a backend/payment service.
+
+
+## Version 4 updates
+- `Buy Prompt` now scrolls directly to the same-page `PROMPT MARKETPLACE` section.
+- Buy Tax, Buy EIN and Buy TikTok Account are static Coming Soon labels (no popup/link).
+- Shopping cart now shows item names, quantities, unit prices, line totals and grand total.
+- Cart supports quantity +/− and removing items.
+- Login modal now includes Login and Sign Up tabs. Authentication remains front-end demo until a backend is connected.
