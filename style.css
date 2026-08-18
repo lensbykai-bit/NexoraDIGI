@@ -389,3 +389,28 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
 }
 
 .market-note{display:block;margin-top:10px;color:#d3b9c7;font-size:12px;line-height:1.6}.market-note strong{color:#fff}\n
+
+/* Version 17 — preview image + secure prompt lock UI */
+.market-card{cursor:pointer}
+.market-card button{cursor:pointer}
+.market-read{position:relative}
+.market-read::before{content:'◉';margin-right:4px}
+.btn.is-logged-in{background:linear-gradient(135deg,#1e7d55,#27b879);box-shadow:0 10px 30px rgba(39,184,121,.18)}
+.prompt-preview-modal{width:min(760px,100%);padding:28px;max-height:min(92vh,900px);overflow:auto}
+.prompt-preview-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.prompt-preview-head h3{margin:6px 0 5px;font-size:27px;line-height:1.2}
+.prompt-preview-head p{margin:0;color:var(--muted)}
+.preview-status{flex:0 0 auto;padding:8px 11px;border-radius:999px;background:#2a1521;border:1px solid #5a2942;color:#ff70b4;font-size:10px;font-weight:900;letter-spacing:.7px}
+.preview-status--login{background:#271f14;border-color:#665226;color:#e8be62}
+.preview-status--unlocked{background:#10261d;border-color:#235a42;color:#61e1a4}
+.preview-art-frame{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#150a12;box-shadow:0 20px 50px rgba(0,0,0,.18);margin-bottom:18px}
+.preview-art-frame .market-cover.preview-cover-clone{height:360px;width:100%;border-radius:0;cursor:default}
+.preview-art-frame .preview-cover-clone strong{font-size:46px;line-height:.9}
+.preview-art-frame .preview-cover-clone .cover-scene{width:120px;height:120px;font-size:50px;border-radius:34px}
+.preview-fallback-art{min-height:320px;display:grid;place-items:center;align-content:center;gap:12px;background:linear-gradient(145deg,#53122f,#ff2f92);color:white}.preview-fallback-art span{font-size:54px}.preview-fallback-art strong{font-size:30px}
+.preview-auth-required,.preview-prompt-lock,.preview-prompt-unlocked{border:1px solid var(--line);border-radius:20px;padding:20px;background:var(--surface-2)}
+.preview-auth-required{text-align:center}.preview-auth-required .preview-lock-icon{font-size:36px;margin-bottom:7px}.preview-auth-required strong{display:block;font-size:18px}.preview-auth-required p{color:var(--muted);font-size:12px;line-height:1.7;margin:8px auto 14px;max-width:480px}
+.locked-copy{display:grid;grid-template-columns:48px 1fr;gap:13px;align-items:center}.lock-shield{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:rgba(255,47,146,.12);font-size:22px}.locked-copy strong{font-size:17px}.locked-copy p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.65}
+.locked-lines{display:grid;gap:8px;margin:17px 0;padding:15px;border-radius:14px;background:rgba(255,255,255,.55);filter:blur(.2px)}.dark .locked-lines{background:rgba(255,255,255,.035)}.locked-lines span{display:block;height:9px;border-radius:999px;background:linear-gradient(90deg,#dccfd6,#f4e7ee)}.dark .locked-lines span{background:linear-gradient(90deg,#3c2331,#573046)}.locked-lines span:nth-child(2){width:92%}.locked-lines span:nth-child(3){width:78%}.locked-lines span:nth-child(4){width:66%}
+.unlocked-badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(47,190,128,.12);color:#1b9f65;font-size:9px;font-weight:900;letter-spacing:.6px;margin-bottom:13px}.preview-prompt-unlocked label{display:grid;gap:8px;font-size:12px;font-weight:800}.preview-prompt-unlocked textarea{width:100%;min-height:180px;resize:vertical;padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:500 12px/1.75 'Manrope','Noto Sans Khmer',sans-serif;outline:none}
+@media(max-width:600px){.prompt-preview-modal{padding:20px 14px}.prompt-preview-head{flex-direction:column}.preview-art-frame .market-cover.preview-cover-clone{height:285px}.preview-art-frame .preview-cover-clone strong{font-size:34px}.preview-art-frame .preview-cover-clone .cover-scene{width:88px;height:88px;font-size:38px}.locked-copy{grid-template-columns:42px 1fr}.lock-shield{width:42px;height:42px}}

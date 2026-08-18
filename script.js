@@ -4,6 +4,9 @@ const themeToggle = document.getElementById('themeToggle');
 const cartCount = document.getElementById('cartCount');
 const toast = document.getElementById('toast');
 const CART_KEY = 'pinkaCartItemsV4';
+const AUTH_KEY = 'pinkaDemoAuthV1';
+const PROMPT_ACCESS_KEY = 'pinkaPromptAccessV1';
+let previewProduct = null;
 let selectedProduct = null;
 let cartItems = loadCart();
 
@@ -20,6 +23,85 @@ function loadCart() {
 function saveCart() {
   localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
   updateCartBadge();
+
+
+function loadAuth() {
+  try {
+    const raw = localStorage.getItem(AUTH_KEY);
+    const auth = raw ? JSON.parse(raw) : null;
+    return auth && auth.loggedIn ? auth : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function isLoggedIn() {
+  return Boolean(loadAuth());
+}
+
+function setLoggedIn(profile = {}) {
+  localStorage.setItem(AUTH_KEY, JSON.stringify({
+    loggedIn: true,
+    name: profile.name || 'PINKA Member',
+    email: profile.email || '',
+    loginAt: Date.now()
+  }));
+  updateAuthButtons();
+}
+
+function updateAuthButtons() {
+  const auth = loadAuth();
+  document.querySelectorAll('[data-open="loginModal"]').forEach(button => {
+    if (auth) {
+      button.textContent = 'គណនី ✓';
+      button.classList.add('is-logged-in');
+    } else {
+      button.textContent = 'Login / Sign Up';
+      button.classList.remove('is-logged-in');
+    }
+  });
+}
+
+function loadPromptAccess() {
+  try {
+    const raw = localStorage.getItem(PROMPT_ACCESS_KEY);
+    const value = raw ? JSON.parse(raw) : {};
+    return value && typeof value === 'object' ? value : {};
+  } catch (error) {
+    return {};
+  }
+}
+
+function getPromptAccess(productId) {
+  return loadPromptAccess()[productId] || null;
+}
+
+function savePromptAccess(productId, payload) {
+  const access = loadPromptAccess();
+  access[productId] = {
+    purchased: true,
+    promptText: String(payload?.promptText || ''),
+    verifiedAt: payload?.verifiedAt || Date.now(),
+    orderId: payload?.orderId || ''
+  };
+  localStorage.setItem(PROMPT_ACCESS_KEY, JSON.stringify(access));
+}
+
+// Payment integration hook.
+// IMPORTANT: Call this only AFTER your trusted backend verifies payment.
+// Do not ship premium prompt text inside public GitHub Pages HTML/JS.
+window.PINKA_PROMPT_ACCESS = {
+  unlock(productId, promptText, orderId = '') {
+    savePromptAccess(productId, { promptText, orderId });
+    if (previewProduct?.id === productId) renderPromptPreviewState();
+    showToast('ការទូទាត់បានបញ្ជាក់ — Prompt បានដោះសោ ✓');
+  },
+  isUnlocked(productId) {
+    return Boolean(getPromptAccess(productId)?.purchased);
+  }
+};
+
+updateAuthButtons();
 }
 
 function money(value) {
@@ -104,6 +186,106 @@ document.querySelectorAll('a[href="#prompts"]').forEach(link => {
   link.addEventListener('click', () => setTimeout(highlightPromptSection, 350));
 });
 
+
+// Prompt image preview + locked/unlocked prompt state
+function clonePreviewCover(card) {
+  const target = document.getElementById('previewArtFrame');
+  if (!target) return;
+  target.innerHTML = '';
+  const cover = card?.querySelector('.market-cover');
+  if (cover) {
+    const clone = cover.cloneNode(true);
+    clone.classList.add('preview-cover-clone');
+    target.appendChild(clone);
+  } else {
+    target.innerHTML = '<div class="preview-fallback-art"><span>✦</span><strong>PINKA PROMPT</strong></div>';
+  }
+}
+
+function renderPromptPreviewState() {
+  const authRequired = document.getElementById('previewAuthRequired');
+  const locked = document.getElementById('previewPromptLocked');
+  const unlocked = document.getElementById('previewPromptUnlocked');
+  const status = document.getElementById('previewStatus');
+  const textarea = document.getElementById('unlockedPromptText');
+  if (!authRequired || !locked || !unlocked || !status || !previewProduct) return;
+
+  const loggedIn = isLoggedIn();
+  const access = getPromptAccess(previewProduct.id);
+  authRequired.hidden = loggedIn;
+  locked.hidden = !loggedIn || Boolean(access?.purchased);
+  unlocked.hidden = !loggedIn || !access?.purchased;
+
+  if (!loggedIn) {
+    status.textContent = 'LOGIN REQUIRED';
+    status.className = 'preview-status preview-status--login';
+  } else if (access?.purchased) {
+    status.textContent = '🔓 UNLOCKED';
+    status.className = 'preview-status preview-status--unlocked';
+    if (textarea) textarea.value = access.promptText || 'Prompt បានដោះសោរួច។ ភ្ជាប់ secure prompt API ដើម្បីទាញយក Prompt ពេញពី server។';
+  } else {
+    status.textContent = '🔒 LOCKED';
+    status.className = 'preview-status';
+  }
+}
+
+function openPromptPreview(card) {
+  if (!card) return;
+  previewProduct = {
+    id: card.dataset.productId || slugify(card.dataset.title),
+    name: card.dataset.title || 'Prompt Pack',
+    price: Number(card.dataset.price || 0),
+    card
+  };
+  const title = document.getElementById('previewTitle');
+  const subtitle = document.getElementById('previewSubtitle');
+  if (title) title.textContent = previewProduct.name;
+  if (subtitle) subtitle.textContent = `មើលរូប Preview • តម្លៃ ${money(previewProduct.price)}`;
+  clonePreviewCover(card);
+  renderPromptPreviewState();
+  openModal('promptPreviewModal');
+}
+
+function openPurchaseFromPreview() {
+  if (!previewProduct?.card) return;
+  closeModal(document.getElementById('promptPreviewModal'));
+  selectProduct(previewProduct.card);
+}
+
+document.querySelectorAll('.preview-btn').forEach(button => {
+  button.addEventListener('click', event => {
+    event.stopPropagation();
+    const card = button.closest('.market-card');
+    openPromptPreview(card);
+  });
+});
+
+document.querySelectorAll('.market-card').forEach(card => {
+  card.addEventListener('click', event => {
+    if (event.target.closest('button, a, input, label')) return;
+    openPromptPreview(card);
+  });
+});
+
+document.getElementById('previewBuyBtn')?.addEventListener('click', openPurchaseFromPreview);
+document.getElementById('previewLoginBtn')?.addEventListener('click', () => {
+  closeModal(document.getElementById('promptPreviewModal'));
+  openModal('loginModal');
+});
+document.getElementById('copyUnlockedPromptBtn')?.addEventListener('click', async () => {
+  const textarea = document.getElementById('unlockedPromptText');
+  const value = textarea?.value || '';
+  if (!value) return;
+  try {
+    await navigator.clipboard.writeText(value);
+    showToast('បាន Copy Prompt ✓');
+  } catch (error) {
+    textarea?.select();
+    document.execCommand('copy');
+    showToast('បាន Copy Prompt ✓');
+  }
+});
+
 // Product modal
 function selectProduct(card) {
   selectedProduct = {
@@ -119,7 +301,8 @@ function selectProduct(card) {
 }
 
 document.querySelectorAll('.buy-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (event) => {
+    event.stopPropagation();
     const card = btn.closest('.product-card');
     if (card) selectProduct(card);
   });
@@ -250,9 +433,11 @@ document.querySelectorAll('[data-switch-auth]').forEach(button => {
 
 document.getElementById('loginForm')?.addEventListener('submit', event => {
   event.preventDefault();
+  const form = new FormData(event.currentTarget);
+  setLoggedIn({ email: form.get('email') || '' });
   closeModal(document.getElementById('loginModal'));
   event.currentTarget.reset();
-  showToast('Login demo ✓ ភ្ជាប់ backend ដើម្បីប្រើគណនីពិត');
+  showToast('បាន Login ✓ អ្នកអាចមើលរូប Preview បាន');
 });
 
 document.getElementById('signupForm')?.addEventListener('submit', event => {
@@ -262,9 +447,10 @@ document.getElementById('signupForm')?.addEventListener('submit', event => {
     showToast('ពាក្យសម្ងាត់ទាំងពីរមិនដូចគ្នាទេ');
     return;
   }
+  setLoggedIn({ name: form.get('name') || 'PINKA Member', email: form.get('email') || '' });
   event.currentTarget.reset();
-  setAuthTab('login');
-  showToast('Sign Up demo ✓ ឥឡូវអាចបន្តទៅ Login');
+  closeModal(document.getElementById('loginModal'));
+  showToast('បានបង្កើតគណនី ✓ អ្នកអាចមើលរូប Preview បាន');
 });
 
 document.getElementById('forgotPasswordBtn')?.addEventListener('click', () => {

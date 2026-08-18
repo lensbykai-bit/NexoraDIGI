@@ -85,3 +85,11 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 - Expanded Prompt Marketplace with the full category/tag set from the provided reference.
 - Dense responsive category chip layout.
 - Unmatched future categories keep the catalog visible until matching products are added.
+
+
+## Prompt Preview + Locked Access (Version 17)
+- Logged-in users can open a product preview image.
+- Prompt text stays locked before purchase.
+- `window.PINKA_PROMPT_ACCESS.unlock(productId, promptText, orderId)` is the front-end hook for a verified payment-success response.
+- IMPORTANT: GitHub Pages is static. Do **not** place paid prompt text inside public HTML/JS/JSON because visitors can inspect source files. For real automatic unlock, verify the order on a secure backend (for example Supabase/Firebase/your server or ABA Pay webhook), then return the purchased prompt only to the authenticated buyer.
+- Login in this package remains a front-end demo session. Connect real authentication before production.
