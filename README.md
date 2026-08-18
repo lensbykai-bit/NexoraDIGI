@@ -79,3 +79,9 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 ## Version 13
 - `ទិញ PROMPT` opens `prompt-marketplace.html` as a separate marketplace page.
 - Marketplace includes category chips, search, 12 prompt cards, cart integration, Login / Sign Up, and responsive design.
+
+
+## Version 14
+- Expanded Prompt Marketplace with the full category/tag set from the provided reference.
+- Dense responsive category chip layout.
+- Unmatched future categories keep the catalog visible until matching products are added.

@@ -346,3 +346,44 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
 
 .cover-food{background:linear-gradient(145deg,#ffcf6e,#e76b2f 50%,#6d281a)}.cover-travel{background:linear-gradient(145deg,#93d4ff,#347ec1 48%,#153860)}.cover-logo{background:linear-gradient(145deg,#bca6ff,#6e48b5 50%,#2a174a)}
 .market-more button:disabled{opacity:.65;cursor:default;transform:none}
+
+
+/* Version 14 — expanded Prompt Marketplace category cloud */
+.market-page .tag-cloud{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin:12px 0 34px;
+  max-width:100%;
+}
+.market-page .market-tag{
+  min-height:30px;
+  padding:7px 13px;
+  border-radius:999px;
+  font-size:8.5px;
+  line-height:1;
+  letter-spacing:.75px;
+  white-space:nowrap;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+}
+.market-page.dark .market-tag{
+  background:rgba(27,11,21,.72);
+  border-color:#563047;
+  color:#dbc7d3;
+}
+.market-page.dark .market-tag:hover{
+  border-color:#ff66ae;
+  color:#fff;
+  background:#311226;
+}
+.market-page.dark .market-tag.active{
+  background:linear-gradient(135deg,#ff2f92,#ff5caf);
+  border-color:#ff2f92;
+  color:#fff;
+  box-shadow:0 8px 22px rgba(255,47,146,.18);
+}
+@media(max-width:600px){
+  .market-page .tag-cloud{gap:7px;margin-bottom:28px}
+  .market-page .market-tag{font-size:8px;padding:7px 10px;min-height:29px}
+}
