@@ -123,3 +123,61 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
   .main-nav{gap:17px}
   .nav-actions{gap:10px;margin-left:3px}
 }
+
+
+/* Version 7 — balanced navigation labels and spacing */
+@media(min-width:821px){
+  .nav-wrap{gap:26px}
+  .main-nav{align-items:stretch;gap:28px}
+  .main-nav>a,
+  .main-nav .nav-static{
+    min-height:60px;
+    box-sizing:border-box;
+    padding:15px 0 11px;
+    line-height:1.08;
+  }
+  .main-nav>a{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+  }
+  .main-nav>a .nav-main,
+  .main-nav .nav-static .nav-main{
+    display:block;
+    min-height:17px;
+    line-height:1.08;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .main-nav .nav-static{
+    align-items:center;
+    justify-content:flex-start;
+    gap:4px;
+    text-align:center;
+  }
+  .main-nav .nav-static .nav-note{
+    display:block;
+    min-height:11px;
+    line-height:1.05;
+  }
+  .main-nav>a::after{bottom:8px}
+  .nav-actions{
+    gap:16px;
+    margin-left:16px;
+    align-items:center;
+  }
+  .nav-actions .icon-btn,
+  .nav-actions .cart-btn,
+  .nav-actions .btn{
+    flex:0 0 auto;
+  }
+}
+@media(min-width:821px) and (max-width:1180px){
+  .main-nav{gap:20px}
+  .nav-actions{gap:13px;margin-left:10px}
+}
+@media(max-width:820px){
+  .main-nav>a{align-items:flex-start}
+  .main-nav>a .nav-main{display:block}
+}
