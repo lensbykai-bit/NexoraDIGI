@@ -42,6 +42,18 @@ document.querySelectorAll('[data-open]').forEach(btn => {
   btn.addEventListener('click', () => openModal(btn.dataset.open));
 });
 
+document.querySelectorAll('.coming-soon-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const title = link.dataset.soonTitle || 'Coming soon';
+    const titleEl = document.getElementById('comingSoonTitle');
+    const textEl = document.getElementById('comingSoonText');
+    if (titleEl) titleEl.textContent = `${title} (Coming soon)`;
+    if (textEl) textEl.textContent = `${title} កំពុងតែរៀបចំ និងមិនទាន់បើកដំណើរការនៅឡើយទេ។ បើចង់ ខ្ញុំអាចបង្កើតទំព័រពិតៗ ឬភ្ជាប់ payment page ជំហានបន្ទាប់បាន។`;
+    openModal('comingSoonModal');
+  });
+});
+
 document.querySelectorAll('[data-close]').forEach(el => {
   el.addEventListener('click', () => closeModal(el.closest('.modal')));
 });
@@ -54,6 +66,15 @@ document.querySelectorAll('.buy-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const card = btn.closest('.product-card');
     selectedProduct = { name: card.dataset.title, price: Number(card.dataset.price) };
+    document.getElementById('modalProductName').textContent = selectedProduct.name;
+    document.getElementById('modalProductPrice').textContent = `$${selectedProduct.price}`;
+    openModal('productModal');
+  });
+});
+
+document.querySelectorAll('.buy-btn-inline').forEach(btn => {
+  btn.addEventListener('click', () => {
+    selectedProduct = { name: btn.dataset.product || 'Bundle', price: Number(btn.dataset.price || 0) };
     document.getElementById('modalProductName').textContent = selectedProduct.name;
     document.getElementById('modalProductPrice').textContent = `$${selectedProduct.price}`;
     openModal('productModal');
@@ -116,9 +137,17 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('.main-nav a')];
-window.addEventListener('scroll', () => {
-  const y = window.scrollY + 130;
-  let current = sections[0]?.id;
-  sections.forEach(sec => { if (sec.offsetTop <= y) current = sec.id; });
-  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current}`));
-}, { passive: true });
+const sectionNavLinks = navLinks.filter(a => {
+  const href = a.getAttribute('href') || '';
+  return href.startsWith('#') && href.length > 1;
+});
+
+if (sections.length && sectionNavLinks.length) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY + 130;
+    let current = sections[0]?.id;
+    sections.forEach(sec => { if (sec.offsetTop <= y) current = sec.id; });
+    sectionNavLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current}`));
+  }, { passive: true });
+}
+
