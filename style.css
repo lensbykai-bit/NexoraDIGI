@@ -424,3 +424,7 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
 .preview-product-image{display:block;width:100%;max-height:min(66vh,700px);object-fit:contain;background:#10070d;border-radius:0}
 .preview-art-frame{display:grid;place-items:center;min-height:300px}
 @media(max-width:600px){.market-cover-overlay .cover-scene{right:15px;top:78px}.preview-product-image{max-height:58vh}}
+
+/* Version 20 — category tag cloud removed */
+.market-catalog .market-grid{margin-top:34px}
+@media(max-width:820px){.market-catalog .market-grid{margin-top:24px}}
