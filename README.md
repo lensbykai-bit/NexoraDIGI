@@ -69,3 +69,8 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 ## Version 10
 - Updated hero location label to Phnom Penh, Cambodia · Since 2024.
 - Refined Khmer hero headline, supporting copy, and quote styling.
+
+
+## Version 12
+- Temporarily removed the 2,500+ community proof row.
+- Temporarily removed the five-item feature/trust strip below the hero.
