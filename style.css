@@ -444,3 +444,21 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
   overflow:hidden !important;
 }
 .market-page .catalog-head{margin-bottom:30px;}
+
+
+/* Version 22 — unlimited auto-growing product gallery */
+.market-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:stretch;
+  grid-auto-flow:row;
+}
+.market-grid .market-card{min-width:0;height:100%}
+.market-grid .market-cover{aspect-ratio:4/3;height:auto;min-height:230px}
+.market-grid .market-card-body{min-height:210px}
+@media(max-width:900px){
+  .market-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .market-grid{grid-template-columns:1fr}
+  .market-grid .market-cover{min-height:260px}
+}

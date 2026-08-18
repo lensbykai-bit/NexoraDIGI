@@ -1,243 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="km">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <meta name="theme-color" content="#ff2f92" />
-  <meta name="description" content="PINKA Prompt Marketplace — premium prompt packs for creators and digital sellers." />
-  <title>ទិញ PROMPT — PINKA Digital Academy</title>
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=21" />
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="0" http-equiv="Expires"/>
+<meta content="#ff2f92" name="theme-color"/>
+<meta content="PINKA Prompt Marketplace — premium prompt packs for creators and digital sellers." name="description"/>
+<title>ទិញ PROMPT — PINKA Digital Academy</title>
+<link href="assets/logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700;800&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="style.css?v=21" rel="stylesheet">
+</link><meta content="22" name="pinka-theme-version"/></head>
 <body class="market-page">
-  <header class="site-header market-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html#top" aria-label="PINKA Digital Academy">
-        <img src="assets/logo.svg" alt="PINKA logo" />
-        <span><strong>PINKA</strong><small>Digital Academy</small></span>
-      </a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html#home"><span class="nav-main">ទំព័រដើម</span></a>
-        <a class="active buy-prompt-nav" href="prompt-marketplace.html"><span class="nav-main">ទិញ PROMPT</span></a>
-        <span class="nav-static"><span class="nav-main">ទិញ TAX</span><span class="nav-note">(Coming soon)</span></span>
-        <span class="nav-static"><span class="nav-main">ទិញ EIN</span><span class="nav-note">(Coming soon)</span></span>
-        <span class="nav-static"><span class="nav-main">ទិញ TIKTOK</span><span class="nav-note">(Coming soon)</span></span>
-      </nav>
-      <div class="nav-actions">
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
-        <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛒<span id="cartCount">0</span></button>
-        <button class="btn btn-sm btn-primary" data-open="loginModal">Login / Sign Up</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="market-intro">
-      <div class="market-shell narrow-shell">
-        <span class="market-kicker">PROMPT BASE</span>
-        <h1>Prompt ដែលជួយឲ្យអ្នក<br><span>បង្កើតបានលឿន និងស្អាតជាងមុន។</span></h1>
-        <p>ជ្រើសរើស Prompt ដែលរៀបចំរួចសម្រាប់ Content, Image, Video, Product, Marketing និងការងារ Digital ផ្សេងៗ។ ទិញម្តង ហើយយកទៅកែប្រើតាមតម្រូវការរបស់អ្នកបានភ្លាមៗ។</p>
-      </div>
-    </section>
-
-    <section class="market-catalog" id="prompts">
-      <div class="market-shell">
-        <div class="catalog-head">
-          <div>
-            <span class="market-kicker">PROMPT MARKETPLACE</span>
-            <h2>ស្វែងរក Prompt ដែលសមនឹងគំនិតរបស់អ្នក</h2>
-            <p>ស្វែងរក Prompt តាមឈ្មោះ ឬគំនិតដែលអ្នកចង់បាន។</p>
-          </div>
-          <label class="market-search">
-            <span>⌕</span>
-            <input id="marketSearch" type="search" placeholder="ស្វែងរក Prompt..." autocomplete="off" />
-          </label>
-        </div>
-        <div class="market-grid" id="marketGrid">
-          <article class="market-card product-card" data-category="portrait realistic" data-title="Golden Hour Portrait Pack" data-price="8" data-product-id="golden-hour-portrait-pack" data-preview="assets/products/previews/golden-hour-portrait-pack.jpg">
-            <div class="market-cover cover-portrait"><img class="market-product-image" src="assets/products/thumbnails/golden-hour-portrait-pack.jpg" alt="Golden Hour Portrait Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">PORTRAIT</span><div class="cover-scene">✦</div><strong>GOLDEN<br>PORTRAIT</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">PORTRAIT • REALISTIC</span><h3>Golden Hour Portrait Pack</h3><p>Prompt សម្រាប់ portrait ថតបែប professional, soft light និង luxury lifestyle។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-category="story 3d cinematic" data-title="3D Story Adventure Pack" data-price="12" data-product-id="3d-story-adventure-pack" data-preview="assets/products/previews/3d-story-adventure-pack.jpg">
-            <div class="market-cover cover-story"><img class="market-product-image" src="assets/products/thumbnails/3d-story-adventure-pack.jpg" alt="3D Story Adventure Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">3D STORY</span><div class="cover-scene">◈</div><strong>MAGIC<br>ADVENTURE</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">3D • STORY • CINEMATIC</span><h3>3D Story Adventure Pack</h3><p>សម្រាប់បង្កើត scene, character និង story visuals បែប animation cinematic។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-category="product ecommerce realistic" data-title="Product Photography Master" data-price="10" data-product-id="product-photography-master" data-preview="assets/products/previews/product-photography-master.jpg">
-            <div class="market-cover cover-product"><img class="market-product-image" src="assets/products/thumbnails/product-photography-master.jpg" alt="Product Photography Master" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">PRODUCT</span><div class="cover-scene">⬡</div><strong>PRODUCT<br>STUDIO</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">PRODUCT • E-COMMERCE</span><h3>Product Photography Master</h3><p>Prompt សម្រាប់ ecommerce product shot, studio light, luxury background និង mockup។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="cinematic story social" data-title="Cinematic Family Moments" data-price="9" data-product-id="cinematic-family-moments" data-preview="assets/products/previews/cinematic-family-moments.jpg">
-            <div class="market-cover cover-cinema"><img class="market-product-image" src="assets/products/thumbnails/cinematic-family-moments.jpg" alt="Cinematic Family Moments" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">CINEMATIC</span><div class="cover-scene">▶</div><strong>FAMILY<br>MOMENTS</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">CINEMATIC • STORY</span><h3>Cinematic Family Moments</h3><p>បង្កើត visual storytelling បែបភាពយន្ត សម្រាប់ family, lifestyle និង emotional content។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="fashion portrait realistic" data-title="Editorial Fashion Prompt Pack" data-price="11" data-product-id="editorial-fashion-prompt-pack" data-preview="assets/products/previews/editorial-fashion-prompt-pack.jpg">
-            <div class="market-cover cover-fashion"><img class="market-product-image" src="assets/products/thumbnails/editorial-fashion-prompt-pack.jpg" alt="Editorial Fashion Prompt Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">FASHION</span><div class="cover-scene">◇</div><strong>EDITORIAL<br>FASHION</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">FASHION • PORTRAIT</span><h3>Editorial Fashion Prompt Pack</h3><p>Prompt សម្រាប់ fashion editorial, magazine look, outfit campaign និង luxury styling។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="architecture interior cinematic" data-title="Luxury Architecture Scene Pack" data-price="14" data-product-id="luxury-architecture-scene-pack" data-preview="assets/products/previews/luxury-architecture-scene-pack.jpg">
-            <div class="market-cover cover-architecture"><img class="market-product-image" src="assets/products/thumbnails/luxury-architecture-scene-pack.jpg" alt="Luxury Architecture Scene Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">ARCHITECTURE</span><div class="cover-scene">⌂</div><strong>LUXURY<br>SPACE</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">ARCHITECTURE • INTERIOR</span><h3>Luxury Architecture Scene Pack</h3><p>Prompt សម្រាប់ villa, interior, resort, modern space និង cinematic environment។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="3d anime story" data-title="3D Fantasy Character Bundle" data-price="13" data-product-id="3d-fantasy-character-bundle" data-preview="assets/products/previews/3d-fantasy-character-bundle.jpg">
-            <div class="market-cover cover-fantasy"><img class="market-product-image" src="assets/products/thumbnails/3d-fantasy-character-bundle.jpg" alt="3D Fantasy Character Bundle" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">3D FANTASY</span><div class="cover-scene">✹</div><strong>HERO<br>WORLD</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">3D • ANIME • STORY</span><h3>3D Fantasy Character Bundle</h3><p>Prompt សម្រាប់ hero, creature, fantasy world និង colorful game-style compositions។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="branding marketing poster social" data-title="Pink Brand Campaign Pack" data-price="10" data-product-id="pink-brand-campaign-pack" data-preview="assets/products/previews/pink-brand-campaign-pack.jpg">
-            <div class="market-cover cover-brand"><img class="market-product-image" src="assets/products/thumbnails/pink-brand-campaign-pack.jpg" alt="Pink Brand Campaign Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">BRANDING</span><div class="cover-scene">P</div><strong>PINK<br>CAMPAIGN</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">BRANDING • MARKETING</span><h3>Pink Brand Campaign Pack</h3><p>Prompt សម្រាប់ brand campaign, sale poster, launch visual និង social media promotion។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="tiktok youtube facebook social thumbnail" data-title="Social Viral Content Pack" data-price="12" data-product-id="social-viral-content-pack" data-preview="assets/products/previews/social-viral-content-pack.jpg">
-            <div class="market-cover cover-social"><img class="market-product-image" src="assets/products/thumbnails/social-viral-content-pack.jpg" alt="Social Viral Content Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">SOCIAL MEDIA</span><div class="cover-scene">↗</div><strong>VIRAL<br>CONTENT</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">TIKTOK • YOUTUBE • FACEBOOK</span><h3>Social Viral Content Pack</h3><p>Prompt សម្រាប់ hook, short video concept, thumbnail និង viral social content idea។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="food advertising product" data-title="Food Advertising Prompt Pack" data-price="9" data-product-id="food-advertising-prompt-pack" data-preview="assets/products/previews/food-advertising-prompt-pack.jpg">
-            <div class="market-cover cover-food"><img class="market-product-image" src="assets/products/thumbnails/food-advertising-prompt-pack.jpg" alt="Food Advertising Prompt Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">FOOD</span><div class="cover-scene">◉</div><strong>FOOD<br>ADS</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">FOOD • ADVERTISING</span><h3>Food Advertising Prompt Pack</h3><p>Prompt សម្រាប់ restaurant ads, menu visual, product photography និង food campaign។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="travel cinematic social" data-title="Travel Cinematic Creator Pack" data-price="11" data-product-id="travel-cinematic-creator-pack" data-preview="assets/products/previews/travel-cinematic-creator-pack.jpg">
-            <div class="market-cover cover-travel"><img class="market-product-image" src="assets/products/thumbnails/travel-cinematic-creator-pack.jpg" alt="Travel Cinematic Creator Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">TRAVEL</span><div class="cover-scene">✈</div><strong>TRAVEL<br>STORY</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">TRAVEL • CINEMATIC</span><h3>Travel Cinematic Creator Pack</h3><p>Prompt សម្រាប់ travel reels, destination poster, cinematic landscape និង creator storytelling។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-
-          <article class="market-card product-card" data-extra="true" hidden data-category="logo branding business" data-title="Brand Logo Identity Pack" data-price="10" data-product-id="brand-logo-identity-pack" data-preview="assets/products/previews/brand-logo-identity-pack.jpg">
-            <div class="market-cover cover-logo"><img class="market-product-image" src="assets/products/thumbnails/brand-logo-identity-pack.jpg" alt="Brand Logo Identity Pack" loading="lazy">
-              <div class="market-cover-overlay"><span class="cover-badge">LOGO</span><div class="cover-scene">◆</div><strong>BRAND<br>IDENTITY</strong></div></div>
-            <div class="market-card-body"><span class="card-kicker">LOGO • BRANDING</span><h3>Brand Logo Identity Pack</h3><p>Prompt សម្រាប់ logo direction, identity concepts, brand mark និង visual guideline ideas។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read preview-btn" type="button">មើលរូប</button></div></div>
-          </article>
-        </div>
-
-        <div class="empty-market" id="marketEmpty" hidden>រកមិនឃើញ Prompt ដែលត្រូវនឹងការស្វែងរករបស់អ្នកទេ។</div>
-        <div class="market-more"><button id="showMorePrompts" type="button">ALL • មើលទាំងអស់ ↓</button></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer market-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a class="brand brand--footer" href="index.html#top"><img src="assets/logo.svg" alt="PINKA logo"><span><strong>PINKA</strong><small>Digital Academy</small></span></a>
-        <p>Prompt Marketplace សម្រាប់ Creator និងអ្នកលក់ Digital Product។ រៀបចំស្អាត ងាយរក និងងាយបន្ថែមផលិតផលថ្មី។</p>
-      </div>
-      <div><h4>រុករក</h4><a href="index.html#home">ទំព័រដើម</a><a href="prompt-marketplace.html">ទិញ PROMPT</a><span class="footer-static">ទិញ TAX (Coming soon)</span></div>
-      <div><h4>ផលិតផល</h4><a href="#prompts">Prompt Marketplace</a><span class="footer-static">ទិញ EIN (Coming soon)</span><span class="footer-static">ទិញ TIKTOK (Coming soon)</span></div>
-      <div><h4>PINKA</h4><p>Phnom Penh, Cambodia</p><p>Since 2024</p></div>
-    </div>
-    <div class="container copyright">© 2026 PINKA Digital Academy. All rights reserved.</div>
-  </footer>
-
-  <button class="to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-  <div class="modal" id="promptPreviewModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-card prompt-preview-modal">
-      <button class="modal-close" data-close>×</button>
-      <div class="prompt-preview-head">
-        <div>
-          <span class="modal-badge">PINKA PROMPT PREVIEW</span>
-          <h3 id="previewTitle">Prompt Preview</h3>
-          <p id="previewSubtitle">មើលរូប Preview មុនពេលទិញ។</p>
-        </div>
-        <span class="preview-status" id="previewStatus">🔒 LOCKED</span>
-      </div>
-
-      <div class="preview-art-frame" id="previewArtFrame" aria-label="Prompt preview image"></div>
-
-      <div class="preview-auth-required" id="previewAuthRequired" hidden>
-        <div class="preview-lock-icon">👤</div>
-        <strong>សូម Login / Sign Up ជាមុនសិន</strong>
-        <p>អតិថិជនដែលបានចូលគណនី អាចមើលរូប Preview និងស្ថានភាព Prompt បាន។</p>
-        <button class="btn btn-primary" id="previewLoginBtn" type="button">Login / Sign Up</button>
-      </div>
-
-      <div class="preview-prompt-lock" id="previewPromptLocked" hidden>
-        <div class="locked-copy">
-          <div class="lock-shield">🔒</div>
-          <div>
-            <strong>Prompt ត្រូវបានចាក់សោ</strong>
-            <p>អ្នកអាចមើលរូបបាន ប៉ុន្តែ Prompt ពេញនឹងដោះសោបន្ទាប់ពីការទូទាត់ត្រូវបានបញ្ជាក់។</p>
-          </div>
-        </div>
-        <div class="locked-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-        <button class="btn btn-primary btn-block" id="previewBuyBtn" type="button">ទិញដើម្បីដោះសោ 🔓</button>
-      </div>
-
-      <div class="preview-prompt-unlocked" id="previewPromptUnlocked" hidden>
-        <div class="unlocked-badge">✓ PURCHASE VERIFIED • PROMPT UNLOCKED</div>
-        <label>Prompt របស់អ្នក
-          <textarea id="unlockedPromptText" readonly></textarea>
-        </label>
-        <button class="btn btn-primary btn-block" id="copyUnlockedPromptBtn" type="button">Copy Prompt</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="productModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-card">
-      <button class="modal-close" data-close>×</button>
-      <span class="modal-badge">PINKA PREMIUM PROMPT</span>
-      <h3 id="modalProductName">Prompt Pack</h3>
-      <p>Prompt pack នេះជាផលិតផល Digital។ បន្ថែមទៅកន្ត្រក ដើម្បីពិនិត្យចំនួន និងតម្លៃមុនបន្តការទូទាត់។</p>
-      <div class="checkout-summary"><span>តម្លៃ</span><strong id="modalProductPrice">$0</strong></div>
-      <button class="btn btn-primary btn-block" id="addToCartBtn">បន្ថែមទៅកន្ត្រក</button>
-      <button class="btn btn-soft btn-block" data-close>បន្តមើលផលិតផល</button>
-    </div>
-  </div>
-
-  <div class="modal" id="loginModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-card auth-card">
-      <button class="modal-close" data-close>×</button>
-      <div class="auth-brand-mark"><img src="assets/logo.svg" alt="PINKA logo"><div><strong>PINKA</strong><small>Member Access</small></div></div>
-      <div class="auth-tabs" role="tablist" aria-label="Login or Sign Up"><button class="auth-tab active" type="button" data-auth-tab="login">Login</button><button class="auth-tab" type="button" data-auth-tab="signup">Sign Up</button></div>
-      <div class="auth-panel active" data-auth-panel="login"><span class="modal-badge">WELCOME BACK</span><h3>ចូលគណនី</h3><p>ចូលទៅកាន់គណនីរបស់អ្នក ដើម្បីគ្រប់គ្រងការទិញ និង Digital Products។</p><form id="loginForm"><label>អ៊ីមែល<input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label><label>ពាក្យសម្ងាត់<input type="password" name="password" placeholder="••••••••" autocomplete="current-password" minlength="6" required></label><div class="auth-row"><label class="remember-check"><input type="checkbox"> <span>ចងចាំខ្ញុំ</span></label><button class="text-btn" type="button" id="forgotPasswordBtn">ភ្លេចពាក្យសម្ងាត់?</button></div><button class="btn btn-primary btn-block" type="submit">ចូល / Login</button></form><div class="auth-switch-copy">មិនទាន់មានគណនី? <button type="button" class="text-btn" data-switch-auth="signup">បង្កើតគណនី</button></div></div>
-      <div class="auth-panel" data-auth-panel="signup"><span class="modal-badge">CREATE ACCOUNT</span><h3>បង្កើតគណនីថ្មី</h3><p>បំពេញព័ត៌មានខាងក្រោម ដើម្បីចាប់ផ្តើមគណនី PINKA របស់អ្នក។</p><form id="signupForm"><label>ឈ្មោះ<input type="text" name="name" placeholder="ឈ្មោះរបស់អ្នក" autocomplete="name" minlength="2" required></label><label>អ៊ីមែល<input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label><label>ពាក្យសម្ងាត់<input type="password" name="password" placeholder="យ៉ាងតិច 6 តួអក្សរ" autocomplete="new-password" minlength="6" required></label><label>បញ្ជាក់ពាក្យសម្ងាត់<input type="password" name="confirmPassword" placeholder="បញ្ចូលម្តងទៀត" autocomplete="new-password" minlength="6" required></label><label class="terms-check"><input type="checkbox" name="terms" required> <span>ខ្ញុំយល់ព្រមតាមលក្ខខណ្ឌ និងគោលការណ៍ឯកជនភាព</span></label><button class="btn btn-primary btn-block" type="submit">បង្កើតគណនី / Sign Up</button></form><div class="auth-switch-copy">មានគណនីរួចហើយ? <button type="button" class="text-btn" data-switch-auth="login">Login</button></div></div>
-      <small class="demo-note">Demo front-end UI — ភ្ជាប់ Firebase, Supabase ឬ backend ពេលចង់ប្រើ Login ពិតប្រាកដ។</small>
-    </div>
-  </div>
-
-  <div class="modal" id="cartModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-card cart-modal-card">
-      <button class="modal-close" data-close>×</button>
-      <div class="cart-modal-head"><div class="cart-title-icon">🛒</div><div><span class="modal-badge">YOUR SHOPPING CART</span><h3>កន្ត្រកទិញ</h3><p>ពិនិត្យផលិតផល ចំនួន និងតម្លៃមុនពេលបន្តការទូទាត់។</p></div></div>
-      <div class="cart-items" id="cartItems"></div>
-      <div class="cart-empty" id="cartEmpty"><div>🛍️</div><strong>កន្ត្រកនៅទទេ</strong><p>ជ្រើសរើស ទំនិញ ដែលអ្នកចង់ទិញពី PROMPT MARKETPLACE។</p><button class="btn btn-soft" id="browsePromptsBtn" type="button">មើលទំនិញ</button></div>
-      <div class="cart-summary" id="cartSummary"><div><span>ចំនួនផលិតផល</span><strong id="cartItemCount">0</strong></div><div><span>តម្លៃសរុប</span><strong id="cartSubtotal">$0.00</strong></div><div class="cart-total-row"><span>សរុបទាំងអស់</span><strong id="cartTotal">$0.00</strong></div><button class="btn btn-primary btn-block" id="checkoutBtn" type="button">បន្តទៅការទូទាត់</button></div>
-    </div>
-  </div>
-
-  <div class="toast" id="toast">បានបន្ថែមទៅកន្ត្រក ✓</div>
-  <script src="script.js?v=21"></script>
-  <script>
+<header class="site-header market-header" id="top">
+<div class="container nav-wrap">
+<a aria-label="PINKA Digital Academy" class="brand" href="index.html#top">
+<img alt="PINKA logo" src="assets/logo.svg"/>
+<span><strong>PINKA</strong><small>Digital Academy</small></span>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn">☰</button>
+<nav class="main-nav" id="mainNav">
+<a href="index.html#home"><span class="nav-main">ទំព័រដើម</span></a>
+<a class="active buy-prompt-nav" href="prompt-marketplace.html"><span class="nav-main">ទិញ PROMPT</span></a>
+<span class="nav-static"><span class="nav-main">ទិញ TAX</span><span class="nav-note">(Coming soon)</span></span>
+<span class="nav-static"><span class="nav-main">ទិញ EIN</span><span class="nav-note">(Coming soon)</span></span>
+<span class="nav-static"><span class="nav-main">ទិញ TIKTOK</span><span class="nav-note">(Coming soon)</span></span>
+</nav>
+<div class="nav-actions">
+<button aria-label="Toggle theme" class="icon-btn" id="themeToggle">◐</button>
+<button aria-label="Open cart" class="cart-btn" id="cartBtn">🛒<span id="cartCount">0</span></button>
+<button class="btn btn-sm btn-primary" data-open="loginModal">Login / Sign Up</button>
+</div>
+</div>
+</header>
+<main>
+<section class="market-intro">
+<div class="market-shell narrow-shell">
+<span class="market-kicker">PROMPT BASE</span>
+<h1>Prompt ដែលជួយឲ្យអ្នក<br/><span>បង្កើតបានលឿន និងស្អាតជាងមុន។</span></h1>
+<p>ជ្រើសរើស Prompt ដែលរៀបចំរួចសម្រាប់ Content, Image, Video, Product, Marketing និងការងារ Digital ផ្សេងៗ។ ទិញម្តង ហើយយកទៅកែប្រើតាមតម្រូវការរបស់អ្នកបានភ្លាមៗ។</p>
+</div>
+</section>
+<section class="market-catalog" id="prompts">
+<div class="market-shell">
+<div class="catalog-head">
+<div>
+<span class="market-kicker">PROMPT MARKETPLACE</span>
+<h2>ស្វែងរក Prompt ដែលសមនឹងគំនិតរបស់អ្នក</h2>
+<p>ស្វែងរក Prompt តាមឈ្មោះ ឬគំនិតដែលអ្នកចង់បាន។</p>
+</div>
+<label class="market-search">
+<span>⌕</span>
+<input autocomplete="off" id="marketSearch" placeholder="ស្វែងរក Prompt..." type="search"/>
+</label>
+</div>
+<div class="market-grid" id="marketGrid"><noscript>Please enable JavaScript to view Prompt products.</noscript></div>
+<div class="empty-market" hidden="" id="marketEmpty">រកមិនឃើញ Prompt ដែលត្រូវនឹងការស្វែងរករបស់អ្នកទេ។</div>
+<div class="market-more"><button id="showMorePrompts" type="button">ALL • មើលទាំងអស់ ↓</button></div>
+</div>
+</section>
+</main>
+<footer class="footer market-footer">
+<div class="container footer-grid">
+<div class="footer-brand">
+<a class="brand brand--footer" href="index.html#top"><img alt="PINKA logo" src="assets/logo.svg"/><span><strong>PINKA</strong><small>Digital Academy</small></span></a>
+<p>Prompt Marketplace សម្រាប់ Creator និងអ្នកលក់ Digital Product។ រៀបចំស្អាត ងាយរក និងងាយបន្ថែមផលិតផលថ្មី។</p>
+</div>
+<div><h4>រុករក</h4><a href="index.html#home">ទំព័រដើម</a><a href="prompt-marketplace.html">ទិញ PROMPT</a><span class="footer-static">ទិញ TAX (Coming soon)</span></div>
+<div><h4>ផលិតផល</h4><a href="#prompts">Prompt Marketplace</a><span class="footer-static">ទិញ EIN (Coming soon)</span><span class="footer-static">ទិញ TIKTOK (Coming soon)</span></div>
+<div><h4>PINKA</h4><p>Phnom Penh, Cambodia</p><p>Since 2024</p></div>
+</div>
+<div class="container copyright">© 2026 PINKA Digital Academy. All rights reserved.</div>
+</footer>
+<button aria-label="Back to top" class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div aria-hidden="true" class="modal" id="promptPreviewModal">
+<div class="modal-backdrop" data-close=""></div>
+<div class="modal-card prompt-preview-modal">
+<button class="modal-close" data-close="">×</button>
+<div class="prompt-preview-head">
+<div>
+<span class="modal-badge">PINKA PROMPT PREVIEW</span>
+<h3 id="previewTitle">Prompt Preview</h3>
+<p id="previewSubtitle">មើលរូប Preview មុនពេលទិញ។</p>
+</div>
+<span class="preview-status" id="previewStatus">🔒 LOCKED</span>
+</div>
+<div aria-label="Prompt preview image" class="preview-art-frame" id="previewArtFrame"></div>
+<div class="preview-auth-required" hidden="" id="previewAuthRequired">
+<div class="preview-lock-icon">👤</div>
+<strong>សូម Login / Sign Up ជាមុនសិន</strong>
+<p>អតិថិជនដែលបានចូលគណនី អាចមើលរូប Preview និងស្ថានភាព Prompt បាន។</p>
+<button class="btn btn-primary" id="previewLoginBtn" type="button">Login / Sign Up</button>
+</div>
+<div class="preview-prompt-lock" hidden="" id="previewPromptLocked">
+<div class="locked-copy">
+<div class="lock-shield">🔒</div>
+<div>
+<strong>Prompt ត្រូវបានចាក់សោ</strong>
+<p>អ្នកអាចមើលរូបបាន ប៉ុន្តែ Prompt ពេញនឹងដោះសោបន្ទាប់ពីការទូទាត់ត្រូវបានបញ្ជាក់។</p>
+</div>
+</div>
+<div aria-hidden="true" class="locked-lines"><span></span><span></span><span></span><span></span></div>
+<button class="btn btn-primary btn-block" id="previewBuyBtn" type="button">ទិញដើម្បីដោះសោ 🔓</button>
+</div>
+<div class="preview-prompt-unlocked" hidden="" id="previewPromptUnlocked">
+<div class="unlocked-badge">✓ PURCHASE VERIFIED • PROMPT UNLOCKED</div>
+<label>Prompt របស់អ្នក
+          <textarea id="unlockedPromptText" readonly=""></textarea>
+</label>
+<button class="btn btn-primary btn-block" id="copyUnlockedPromptBtn" type="button">Copy Prompt</button>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="modal" id="productModal">
+<div class="modal-backdrop" data-close=""></div>
+<div class="modal-card">
+<button class="modal-close" data-close="">×</button>
+<span class="modal-badge">PINKA PREMIUM PROMPT</span>
+<h3 id="modalProductName">Prompt Pack</h3>
+<p>Prompt pack នេះជាផលិតផល Digital។ បន្ថែមទៅកន្ត្រក ដើម្បីពិនិត្យចំនួន និងតម្លៃមុនបន្តការទូទាត់។</p>
+<div class="checkout-summary"><span>តម្លៃ</span><strong id="modalProductPrice">$0</strong></div>
+<button class="btn btn-primary btn-block" id="addToCartBtn">បន្ថែមទៅកន្ត្រក</button>
+<button class="btn btn-soft btn-block" data-close="">បន្តមើលផលិតផល</button>
+</div>
+</div>
+<div aria-hidden="true" class="modal" id="loginModal">
+<div class="modal-backdrop" data-close=""></div>
+<div class="modal-card auth-card">
+<button class="modal-close" data-close="">×</button>
+<div class="auth-brand-mark"><img alt="PINKA logo" src="assets/logo.svg"/><div><strong>PINKA</strong><small>Member Access</small></div></div>
+<div aria-label="Login or Sign Up" class="auth-tabs" role="tablist"><button class="auth-tab active" data-auth-tab="login" type="button">Login</button><button class="auth-tab" data-auth-tab="signup" type="button">Sign Up</button></div>
+<div class="auth-panel active" data-auth-panel="login"><span class="modal-badge">WELCOME BACK</span><h3>ចូលគណនី</h3><p>ចូលទៅកាន់គណនីរបស់អ្នក ដើម្បីគ្រប់គ្រងការទិញ និង Digital Products។</p><form id="loginForm"><label>អ៊ីមែល<input autocomplete="email" name="email" placeholder="name@example.com" required="" type="email"/></label><label>ពាក្យសម្ងាត់<input autocomplete="current-password" minlength="6" name="password" placeholder="••••••••" required="" type="password"/></label><div class="auth-row"><label class="remember-check"><input type="checkbox"/> <span>ចងចាំខ្ញុំ</span></label><button class="text-btn" id="forgotPasswordBtn" type="button">ភ្លេចពាក្យសម្ងាត់?</button></div><button class="btn btn-primary btn-block" type="submit">ចូល / Login</button></form><div class="auth-switch-copy">មិនទាន់មានគណនី? <button class="text-btn" data-switch-auth="signup" type="button">បង្កើតគណនី</button></div></div>
+<div class="auth-panel" data-auth-panel="signup"><span class="modal-badge">CREATE ACCOUNT</span><h3>បង្កើតគណនីថ្មី</h3><p>បំពេញព័ត៌មានខាងក្រោម ដើម្បីចាប់ផ្តើមគណនី PINKA របស់អ្នក។</p><form id="signupForm"><label>ឈ្មោះ<input autocomplete="name" minlength="2" name="name" placeholder="ឈ្មោះរបស់អ្នក" required="" type="text"/></label><label>អ៊ីមែល<input autocomplete="email" name="email" placeholder="name@example.com" required="" type="email"/></label><label>ពាក្យសម្ងាត់<input autocomplete="new-password" minlength="6" name="password" placeholder="យ៉ាងតិច 6 តួអក្សរ" required="" type="password"/></label><label>បញ្ជាក់ពាក្យសម្ងាត់<input autocomplete="new-password" minlength="6" name="confirmPassword" placeholder="បញ្ចូលម្តងទៀត" required="" type="password"/></label><label class="terms-check"><input name="terms" required="" type="checkbox"/> <span>ខ្ញុំយល់ព្រមតាមលក្ខខណ្ឌ និងគោលការណ៍ឯកជនភាព</span></label><button class="btn btn-primary btn-block" type="submit">បង្កើតគណនី / Sign Up</button></form><div class="auth-switch-copy">មានគណនីរួចហើយ? <button class="text-btn" data-switch-auth="login" type="button">Login</button></div></div>
+<small class="demo-note">Demo front-end UI — ភ្ជាប់ Firebase, Supabase ឬ backend ពេលចង់ប្រើ Login ពិតប្រាកដ។</small>
+</div>
+</div>
+<div aria-hidden="true" class="modal" id="cartModal">
+<div class="modal-backdrop" data-close=""></div>
+<div class="modal-card cart-modal-card">
+<button class="modal-close" data-close="">×</button>
+<div class="cart-modal-head"><div class="cart-title-icon">🛒</div><div><span class="modal-badge">YOUR SHOPPING CART</span><h3>កន្ត្រកទិញ</h3><p>ពិនិត្យផលិតផល ចំនួន និងតម្លៃមុនពេលបន្តការទូទាត់។</p></div></div>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-empty" id="cartEmpty"><div>🛍️</div><strong>កន្ត្រកនៅទទេ</strong><p>ជ្រើសរើស ទំនិញ ដែលអ្នកចង់ទិញពី PROMPT MARKETPLACE។</p><button class="btn btn-soft" id="browsePromptsBtn" type="button">មើលទំនិញ</button></div>
+<div class="cart-summary" id="cartSummary"><div><span>ចំនួនផលិតផល</span><strong id="cartItemCount">0</strong></div><div><span>តម្លៃសរុប</span><strong id="cartSubtotal">$0.00</strong></div><div class="cart-total-row"><span>សរុបទាំងអស់</span><strong id="cartTotal">$0.00</strong></div><button class="btn btn-primary btn-block" id="checkoutBtn" type="button">បន្តទៅការទូទាត់</button></div>
+</div>
+</div>
+<div class="toast" id="toast">បានបន្ថែមទៅកន្ត្រក ✓</div>
+<script src="products-data.js?v=22"></script><script src="script.js?v=22"></script>
+<script>
     (() => {
       // Version 21: permanently remove all category/tag UI.
       document.querySelectorAll('.tag-cloud, .market-tag, [data-market-filter]').forEach(el => el.remove());

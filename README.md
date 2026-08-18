@@ -106,3 +106,7 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 
 ## Version 21
 Category/Tag filter UI was removed completely from Prompt Marketplace. Search + product cards remain. Cache-busting query strings were added for GitHub Pages.
+
+
+## Version 22 product grid
+Products are rendered from `products-data.js`. Add another product object there and the 3-column marketplace grid grows automatically. The first 3 are visible; the rest appear under the ALL button.
