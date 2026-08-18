@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <meta name="theme-color" content="#ff2f92" />
   <meta name="description" content="PINKA Prompt Marketplace — premium prompt packs for creators and digital sellers." />
   <title>ទិញ PROMPT — PINKA Digital Academy</title>
@@ -10,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=21" />
 </head>
 <body class="market-page">
   <header class="site-header market-header" id="top">
@@ -233,50 +236,40 @@
   </div>
 
   <div class="toast" id="toast">បានបន្ថែមទៅកន្ត្រក ✓</div>
-  <script src="script.js"></script>
+  <script src="script.js?v=21"></script>
   <script>
     (() => {
+      // Version 21: permanently remove all category/tag UI.
+      document.querySelectorAll('.tag-cloud, .market-tag, [data-market-filter]').forEach(el => el.remove());
+
       const cards = [...document.querySelectorAll('.market-card')];
-      const tags = [...document.querySelectorAll('[data-market-filter]')];
       const search = document.getElementById('marketSearch');
       const empty = document.getElementById('marketEmpty');
-      let category = 'all';
       let extraUnlocked = false;
 
-      function applyFilters() {
+      function applySearch() {
         const q = (search?.value || '').trim().toLowerCase();
-        const directMatches = category === 'all' ? cards.length : cards.filter(card => {
-          const categories = (card.dataset.category || '').toLowerCase().split(/\s+/);
-          return categories.includes(category);
-        }).length;
-        const useCategoryFilter = category === 'all' || directMatches > 0;
         let visible = 0;
         cards.forEach(card => {
-          const categories = (card.dataset.category || '').toLowerCase().split(/\s+/);
           const haystack = `${card.dataset.title || ''} ${card.textContent || ''}`.toLowerCase();
-          const categoryMatch = !useCategoryFilter || category === 'all' || categories.includes(category);
           const searchMatch = !q || haystack.includes(q);
           const extraMatch = extraUnlocked || card.dataset.extra !== 'true';
-          const show = categoryMatch && searchMatch && extraMatch;
+          const show = searchMatch && extraMatch;
           card.hidden = !show;
           if (show) visible++;
         });
         if (empty) empty.hidden = visible !== 0;
       }
 
-      tags.forEach(tag => tag.addEventListener('click', () => {
-        tags.forEach(item => item.classList.remove('active'));
-        tag.classList.add('active');
-        category = tag.dataset.marketFilter || 'all';
-        applyFilters();
-      }));
-      search?.addEventListener('input', applyFilters);
+      search?.addEventListener('input', applySearch);
       document.getElementById('showMorePrompts')?.addEventListener('click', event => {
         extraUnlocked = true;
-        applyFilters();
+        applySearch();
         event.currentTarget.textContent = 'បានបង្ហាញទាំងអស់ ✓';
         event.currentTarget.disabled = true;
       });
+
+      applySearch();
     })();
   </script>
 </body>

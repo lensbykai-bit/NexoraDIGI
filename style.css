@@ -428,3 +428,19 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
 /* Version 20 — category tag cloud removed */
 .market-catalog .market-grid{margin-top:34px}
 @media(max-width:820px){.market-catalog .market-grid{margin-top:24px}}
+
+
+/* Version 21 — category/tag area removed permanently */
+.market-page .tag-cloud,
+.market-page .market-tag,
+.market-page [data-market-filter]{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  overflow:hidden !important;
+}
+.market-page .catalog-head{margin-bottom:30px;}

@@ -102,3 +102,7 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 - Recommended card size: **900 × 1080 px**.
 - Recommended preview size: **1200 × 1500 px**.
 - See `assets/products/README.txt` for the complete filename list.
+
+
+## Version 21
+Category/Tag filter UI was removed completely from Prompt Marketplace. Search + product cards remain. Cache-busting query strings were added for GitHub Pages.
