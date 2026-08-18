@@ -64,3 +64,8 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 - Shopping cart now shows item names, quantities, unit prices, line totals and grand total.
 - Cart supports quantity +/− and removing items.
 - Login modal now includes Login and Sign Up tabs. Authentication remains front-end demo until a backend is connected.
+
+
+## Version 10
+- Updated hero location label to Phnom Penh, Cambodia · Since 2024.
+- Refined Khmer hero headline, supporting copy, and quote styling.
