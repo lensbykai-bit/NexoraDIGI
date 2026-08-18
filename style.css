@@ -387,3 +387,5 @@ body.dark .mini-pills span{background:rgba(27,14,22,.88)}
   .market-page .tag-cloud{gap:7px;margin-bottom:28px}
   .market-page .market-tag{font-size:8px;padding:7px 10px;min-height:29px}
 }
+
+.market-note{display:block;margin-top:10px;color:#d3b9c7;font-size:12px;line-height:1.6}.market-note strong{color:#fff}\n

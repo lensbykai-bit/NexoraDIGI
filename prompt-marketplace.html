@@ -206,32 +206,32 @@
             <div class="market-card-body"><span class="card-kicker">PRODUCT • E-COMMERCE</span><h3>Product Photography Master</h3><p>Prompt សម្រាប់ ecommerce product shot, studio light, luxury background និង mockup។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read buy-btn">មើលលម្អិត</button></div></div>
           </article>
 
-          <article class="market-card product-card" data-category="cinematic story social" data-title="Cinematic Family Moments" data-price="9">
+          <article class="market-card product-card" data-extra="true" hidden data-category="cinematic story social" data-title="Cinematic Family Moments" data-price="9">
             <div class="market-cover cover-cinema"><span class="cover-badge">CINEMATIC</span><div class="cover-scene">▶</div><strong>FAMILY<br>MOMENTS</strong></div>
             <div class="market-card-body"><span class="card-kicker">CINEMATIC • STORY</span><h3>Cinematic Family Moments</h3><p>បង្កើត visual storytelling បែបភាពយន្ត សម្រាប់ family, lifestyle និង emotional content។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read buy-btn">មើលលម្អិត</button></div></div>
           </article>
 
-          <article class="market-card product-card" data-category="fashion portrait realistic" data-title="Editorial Fashion Prompt Pack" data-price="11">
+          <article class="market-card product-card" data-extra="true" hidden data-category="fashion portrait realistic" data-title="Editorial Fashion Prompt Pack" data-price="11">
             <div class="market-cover cover-fashion"><span class="cover-badge">FASHION</span><div class="cover-scene">◇</div><strong>EDITORIAL<br>FASHION</strong></div>
             <div class="market-card-body"><span class="card-kicker">FASHION • PORTRAIT</span><h3>Editorial Fashion Prompt Pack</h3><p>Prompt សម្រាប់ fashion editorial, magazine look, outfit campaign និង luxury styling។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read buy-btn">មើលលម្អិត</button></div></div>
           </article>
 
-          <article class="market-card product-card" data-category="architecture interior cinematic" data-title="Luxury Architecture Scene Pack" data-price="14">
+          <article class="market-card product-card" data-extra="true" hidden data-category="architecture interior cinematic" data-title="Luxury Architecture Scene Pack" data-price="14">
             <div class="market-cover cover-architecture"><span class="cover-badge">ARCHITECTURE</span><div class="cover-scene">⌂</div><strong>LUXURY<br>SPACE</strong></div>
             <div class="market-card-body"><span class="card-kicker">ARCHITECTURE • INTERIOR</span><h3>Luxury Architecture Scene Pack</h3><p>Prompt សម្រាប់ villa, interior, resort, modern space និង cinematic environment។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read buy-btn">មើលលម្អិត</button></div></div>
           </article>
 
-          <article class="market-card product-card" data-category="3d anime story" data-title="3D Fantasy Character Bundle" data-price="13">
+          <article class="market-card product-card" data-extra="true" hidden data-category="3d anime story" data-title="3D Fantasy Character Bundle" data-price="13">
             <div class="market-cover cover-fantasy"><span class="cover-badge">3D FANTASY</span><div class="cover-scene">✹</div><strong>HERO<br>WORLD</strong></div>
             <div class="market-card-body"><span class="card-kicker">3D • ANIME • STORY</span><h3>3D Fantasy Character Bundle</h3><p>Prompt សម្រាប់ hero, creature, fantasy world និង colorful game-style compositions។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read buy-btn">មើលលម្អិត</button></div></div>
           </article>
 
-          <article class="market-card product-card" data-category="branding marketing poster social" data-title="Pink Brand Campaign Pack" data-price="10">
+          <article class="market-card product-card" data-extra="true" hidden data-category="branding marketing poster social" data-title="Pink Brand Campaign Pack" data-price="10">
             <div class="market-cover cover-brand"><span class="cover-badge">BRANDING</span><div class="cover-scene">P</div><strong>PINK<br>CAMPAIGN</strong></div>
             <div class="market-card-body"><span class="card-kicker">BRANDING • MARKETING</span><h3>Pink Brand Campaign Pack</h3><p>Prompt សម្រាប់ brand campaign, sale poster, launch visual និង social media promotion។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read buy-btn">មើលលម្អិត</button></div></div>
           </article>
 
-          <article class="market-card product-card" data-category="tiktok youtube facebook social thumbnail" data-title="Social Viral Content Pack" data-price="12">
+          <article class="market-card product-card" data-extra="true" hidden data-category="tiktok youtube facebook social thumbnail" data-title="Social Viral Content Pack" data-price="12">
             <div class="market-cover cover-social"><span class="cover-badge">SOCIAL MEDIA</span><div class="cover-scene">↗</div><strong>VIRAL<br>CONTENT</strong></div>
             <div class="market-card-body"><span class="card-kicker">TIKTOK • YOUTUBE • FACEBOOK</span><h3>Social Viral Content Pack</h3><p>Prompt សម្រាប់ hook, short video concept, thumbnail និង viral social content idea។</p><div class="market-card-foot"><button class="market-buy buy-btn">ទិញ PROMPT</button><button class="market-read buy-btn">មើលលម្អិត</button></div></div>
           </article>
@@ -253,7 +253,7 @@
         </div>
 
         <div class="empty-market" id="marketEmpty" hidden>រកមិនឃើញ Prompt ដែលត្រូវនឹងការស្វែងរករបស់អ្នកទេ។</div>
-        <div class="market-more"><button id="showMorePrompts" type="button">Show more prompts ↓</button></div>
+        <div class="market-more"><button id="showMorePrompts" type="button">ALL • មើល Prompt ទាំងអស់ ↓</button></div>
       </div>
     </section>
   </main>
@@ -351,7 +351,7 @@
       document.getElementById('showMorePrompts')?.addEventListener('click', event => {
         extraUnlocked = true;
         applyFilters();
-        event.currentTarget.textContent = 'បានបង្ហាញ Prompt បន្ថែម ✓';
+        event.currentTarget.textContent = 'បានបង្ហាញ Prompt ទាំងអស់ ✓';
         event.currentTarget.disabled = true;
       });
     })();
