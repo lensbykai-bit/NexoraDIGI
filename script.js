@@ -192,6 +192,26 @@ function clonePreviewCover(card) {
   const target = document.getElementById('previewArtFrame');
   if (!target) return;
   target.innerHTML = '';
+
+  const previewSrc = card?.dataset.preview;
+  if (previewSrc) {
+    const img = document.createElement('img');
+    img.className = 'preview-product-image';
+    img.src = previewSrc;
+    img.alt = `${card?.dataset.title || 'Prompt'} preview`;
+    img.loading = 'eager';
+    img.addEventListener('error', () => {
+      const cover = card?.querySelector('.market-cover');
+      if (!cover) return;
+      target.innerHTML = '';
+      const clone = cover.cloneNode(true);
+      clone.classList.add('preview-cover-clone');
+      target.appendChild(clone);
+    }, { once: true });
+    target.appendChild(img);
+    return;
+  }
+
   const cover = card?.querySelector('.market-cover');
   if (cover) {
     const clone = cover.cloneNode(true);

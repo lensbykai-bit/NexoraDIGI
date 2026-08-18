@@ -93,3 +93,12 @@ This is a **front-end theme**. The login and checkout are demo UI only. For real
 - `window.PINKA_PROMPT_ACCESS.unlock(productId, promptText, orderId)` is the front-end hook for a verified payment-success response.
 - IMPORTANT: GitHub Pages is static. Do **not** place paid prompt text inside public HTML/JS/JSON because visitors can inspect source files. For real automatic unlock, verify the order on a secure backend (for example Supabase/Firebase/your server or ABA Pay webhook), then return the purchased prompt only to the authenticated buyer.
 - Login in this package remains a front-end demo session. Connect real authentication before production.
+
+
+## Product images (Version 18)
+- Card images: `assets/products/thumbnails/`
+- Popup preview images: `assets/products/previews/`
+- Replace a placeholder image with your own image **using the same filename**.
+- Recommended card size: **900 × 1080 px**.
+- Recommended preview size: **1200 × 1500 px**.
+- See `assets/products/README.txt` for the complete filename list.
