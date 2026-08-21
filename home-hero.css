@@ -1,0 +1,32 @@
+/* Premium Home Hero refresh */
+.homePage{background:linear-gradient(180deg,#fff 0,#fff8fc 45%,#fff 100%)}
+.homeNav{min-height:86px;padding-top:4px;padding-bottom:4px}
+.hero2026{position:relative;overflow:hidden;padding:52px 0 70px;background:radial-gradient(circle at 88% 14%,rgba(255,255,255,.95),transparent 24%),radial-gradient(circle at 68% 78%,rgba(255,111,184,.22),transparent 31%),linear-gradient(115deg,#fff 0%,#fff6fb 34%,#ffe1f0 70%,#ffc3e1 100%)}
+.hero2026:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,255,255,.42),transparent 52%);pointer-events:none}
+.hero2026:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-150px;bottom:-260px;border:64px solid rgba(255,255,255,.22);pointer-events:none}
+.hero2026Grid{position:relative;z-index:2;min-height:610px;display:grid;grid-template-columns:.94fr 1.06fr;gap:42px;align-items:center}
+.hero2026Copy{padding:10px 0 20px}
+.hero2026Badge{display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.74);border:1px solid #f5cde2;color:#c9347a;font-size:12px;font-weight:900;letter-spacing:.06em;box-shadow:0 10px 28px rgba(190,62,128,.08)}
+.hero2026Copy h1{font-size:clamp(54px,5.6vw,82px);line-height:.97;letter-spacing:-.055em;margin:22px 0 22px;max-width:760px;color:#201323}
+.hero2026Copy h1 span{display:block;background:linear-gradient(90deg,#ff3e9d,#e644c0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero2026Copy p{max-width:610px;margin:0;color:#72566d;font-size:18px;line-height:1.72}
+.hero2026Actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.hero2026Actions .btn{min-height:54px;padding-left:24px;padding-right:24px;border-radius:15px;text-decoration:none}
+.hero2026Mini{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:34px;max-width:650px}
+.hero2026Mini div{display:grid;grid-template-columns:42px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:11px 10px;border-radius:16px;background:rgba(255,255,255,.56);border:1px solid rgba(244,210,229,.9)}
+.hero2026Mini span{grid-row:1/3;width:40px;height:40px;border-radius:13px;background:#fff0f7;display:grid;place-items:center;color:#e8408d;font-weight:900;font-size:17px}
+.hero2026Mini b{font-size:11px;color:#543349}
+.hero2026Mini small{font-size:9px;color:#896f83;line-height:1.35;margin-top:3px}
+.heroArt2026{position:relative;min-height:590px;display:flex;align-items:center;justify-content:center}
+.heroArtGlow{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#ffd6ea 50%,rgba(255,111,184,.09) 70%,transparent 72%);filter:blur(.2px)}
+.heroArtFrame{position:relative;width:min(100%,700px);z-index:2;transform:rotate(-1.2deg);filter:drop-shadow(0 34px 42px rgba(129,39,85,.18))}
+.heroArtFrame:before{content:"";position:absolute;inset:8% -2% -3% 8%;border-radius:42px;background:rgba(255,255,255,.24);filter:blur(14px);z-index:-1}
+.heroArtFrame img{width:100%;display:block;border-radius:38px;mix-blend-mode:multiply;box-shadow:0 24px 60px rgba(164,54,111,.12)}
+.heroSpark{position:absolute;z-index:4;width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.83);border:1px solid rgba(255,255,255,.95);box-shadow:0 14px 30px rgba(137,42,88,.12);color:#f24496;font-size:20px}
+.sparkA{right:2%;top:13%}.sparkB{left:5%;bottom:15%}.sparkC{right:12%;bottom:7%}
+.heroFloatTag{position:absolute;z-index:5;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid #f1d2e3;box-shadow:0 14px 30px rgba(137,42,88,.11);font-size:10px;font-weight:900;color:#773e60}
+.tagA{left:2%;top:21%}.tagB{right:4%;top:48%}
+.homeStats{margin-top:-30px}
+@media(max-width:1080px){.hero2026Grid{grid-template-columns:1fr;min-height:auto}.hero2026Copy{padding-top:10px}.heroArt2026{min-height:520px}.heroArtFrame{max-width:720px}.hero2026Mini{max-width:none}}
+@media(max-width:760px){.hero2026{padding:34px 0 48px}.hero2026Copy h1{font-size:48px}.hero2026Copy p{font-size:16px}.hero2026Mini{grid-template-columns:1fr}.heroArt2026{min-height:390px}.heroArtFrame img{border-radius:26px}.heroFloatTag,.heroSpark{display:none}.homeStats{margin-top:18px}}
+@media(max-width:520px){.hero2026Copy h1{font-size:40px}.hero2026Actions .btn{width:100%}.heroArt2026{min-height:320px}.hero2026Badge{font-size:10px}.heroArtFrame{width:115%;margin-left:-7%}}
