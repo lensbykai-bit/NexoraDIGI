@@ -4,24 +4,85 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ff4fa5">
-<title>PromptStudio — Video Prompt Marketplace</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<title>PromptStudio — Premium AI Video Prompts</title>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<header class="wrap nav">
-  <div class="brand"><span class="logo">▶</span><div><b>PromptStudio</b><small>Video Prompt Marketplace</small></div></div>
-  <nav class="navlinks"><a href="#">Home</a><a href="#prompts">Browse Prompts</a><a href="#categories">Categories</a><a href="#how">How It Works</a></nav>
-  <div class="actions"><span class="account" id="accountLabel"></span><button class="btn adminBtn" id="adminToggle">Admin Panel</button><button class="btn ghost" id="loginBtn">Login</button><button class="btn primary" id="signupBtn">Sign Up</button><button class="btn danger" id="logoutBtn" style="display:none">Logout</button></div>
+<body class="homePage">
+<header class="wrap nav homeNav">
+  <a class="brand" href="index.html"><span class="logo">▶</span><div><b>PromptStudio</b><small>Video Prompt Marketplace</small></div></a>
+  <nav class="navlinks simpleNav"><a class="activeLink" href="index.html">Home</a><a href="prompts.html">Browse Prompts</a></nav>
+  <a class="btn primary topCta" href="prompts.html">Explore Marketplace</a>
 </header>
-<section class="hero"><div class="wrap heroGrid"><div class="copy"><h1>Find the Perfect <span>Video Prompt</span><br>for Your Next Creation</h1><p>Premium AI video prompts created and managed by PromptStudio. Customers can browse and buy; only the administrator can upload or edit marketplace content.</p><div class="search"><input id="search" placeholder="Search prompts: cinematic, TikTok, anime, AI workflow..."><button id="searchBtn">Search</button></div><div class="chips"><button class="chip" data-cat="All">All</button><button class="chip" data-cat="TikTok">TikTok</button><button class="chip" data-cat="YouTube">YouTube</button><button class="chip" data-cat="Content Strategy">Content Strategy</button><button class="chip" data-cat="AI Workflow">AI Workflow</button></div></div><div class="art"><div class="clap"><div class="clapText">SCENE&nbsp;&nbsp;&nbsp;TAKE<br><b style="font-size:28px">01&nbsp;&nbsp;02</b><br>AI PROMPT<br>────────</div></div><div class="player"><span class="tri"></span></div><div class="stage"></div></div></div></section>
-<section class="wrap benefits" id="how"><div class="benefit"><span class="ico">⚡</span><div><b>Fast Access</b><small>Browse ready-to-use prompts instantly</small></div></div><div class="benefit"><span class="ico">✦</span><div><b>Admin Curated</b><small>Only the administrator publishes content</small></div></div><div class="benefit"><span class="ico">🔒</span><div><b>Protected Uploads</b><small>Customer accounts cannot insert or edit prompts</small></div></div><div class="benefit"><span class="ico">✓</span><div><b>Secure Roles</b><small>Permissions are enforced by database RLS</small></div></div></section>
-<section class="wrap market" id="prompts"><aside class="sidebar" id="categories"><h3>Categories</h3><button class="cat active" data-cat="All">All Categories</button><button class="cat" data-cat="TikTok">TikTok</button><button class="cat" data-cat="YouTube">YouTube</button><button class="cat" data-cat="Instagram">Instagram</button><button class="cat" data-cat="Content Strategy">Content Strategy</button><button class="cat" data-cat="AI Workflow">AI Workflow</button><button class="cat" data-cat="Digital Products">Digital Products</button><button class="cat" data-cat="Multi-Platform">Multi-Platform</button><button class="cat" data-cat="Branding">Branding</button></aside><div><div class="head"><h2>Featured Prompts</h2></div><div class="grid" id="grid"><div class="empty">Loading prompts...</div></div></div></section>
-<section class="admin" id="adminSection"><div class="wrap adminShell"><div class="adminHead"><div><h2>Admin Prompt Manager</h2><p>This section is visible and writable only to an account with the admin role.</p></div><button class="btn ghost" id="closeAdmin">Close Admin Panel</button></div><div class="adminGrid"><div class="formCard"><h3 id="formHeading">Upload New Prompt</h3><div class="fields"><div class="field full"><label>Cover Image</label><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp"><div class="uploadPreview" id="imagePreview">Choose an image</div></div><div class="field"><label>Title</label><input id="titleInput" placeholder="Prompt title"></div><div class="field"><label>Category</label><input id="categoryInput" placeholder="e.g. TikTok"></div><div class="field"><label>Price (USD)</label><input id="priceInput" type="number" min="0" step="0.01" value="2.99"></div><div class="field"><label>Duration</label><input id="durationInput" value="10s"></div><div class="field full"><label>Short Description</label><input id="descriptionInput" placeholder="Short customer-facing description"></div><div class="field full"><label>Full Prompt</label><textarea id="promptInput" placeholder="Paste the full AI video prompt here..."></textarea></div></div><div class="formActions"><button class="btn primary" id="savePrompt">Publish Prompt</button><button class="btn ghost" id="resetForm">Reset</button></div><div class="status" id="adminStatus"></div></div><div class="manageCard"><h3>Manage Prompts</h3><div class="adminList" id="adminList"><div class="status">Loading...</div></div></div></div></div></section>
-<section class="wrap bottom"><div><span class="circle">♛</span><p><strong>Customers</strong><small>Can register, sign in and browse prompts</small></p></div><div><span class="circle">🔒</span><p><strong>No Customer Uploads</strong><small>Upload controls never appear for normal accounts</small></p></div><div><span class="circle">⚙</span><p><strong>Admin Only</strong><small>Admin can upload, edit and delete prompts</small></p></div><div><span class="circle">☁</span><p><strong>Cloud Storage</strong><small>Admin images are stored in Supabase Storage</small></p></div></section>
-<div class="modal" id="promptModal"><div class="box"><button class="close" id="closePrompt">×</button><h2 id="modalTitle"></h2><div class="status" id="modalMeta"></div><div class="promptBox" id="modalPrompt"></div><div class="pricebar"><strong class="price" id="modalPrice"></strong><button class="buy">Buy Now</button></div></div></div>
-<div class="modal" id="authModal"><div class="box"><button class="close" id="closeAuth">×</button><div class="tabs"><button id="loginTab" class="active">Login</button><button id="signupTab">Sign Up</button></div><div class="authField" id="nameField" style="display:none"><label>Full Name</label><input id="authName" placeholder="Your name"></div><div class="authField"><label>Email</label><input id="authEmail" type="email" placeholder="name@example.com"></div><div class="authField"><label>Password</label><input id="authPassword" type="password" placeholder="At least 6 characters"></div><button class="btn primary" id="authSubmit" style="width:100%">Login</button><div class="status" id="authStatus"></div></div></div>
-<footer class="footer">© 2026 PromptStudio — Video Prompt Marketplace</footer>
-<script src="app.js"></script>
+
+<main>
+  <section class="homeHero">
+    <div class="wrap homeHeroGrid">
+      <div class="homeCopy">
+        <span class="heroBadge">✦ PREMIUM AI VIDEO PROMPTS</span>
+        <h1>Create better videos <span>faster</span> with prompts that are ready to use.</h1>
+        <p>Discover polished AI video prompts built for creators who want stronger ideas, cleaner visuals, and faster production without starting from zero.</p>
+        <div class="homeActions">
+          <a class="btn primary bigBtn" href="prompts.html">Browse Prompts →</a>
+          <a class="btn ghost bigBtn" href="prompts.html#marketplace">See New Releases</a>
+        </div>
+        <div class="homeTrust">
+          <span>✓ Curated by Admin</span><span>✓ Instant browsing</span><span>✓ Secure accounts</span>
+        </div>
+      </div>
+
+      <div class="homeVisual" aria-hidden="true">
+        <div class="visualGlow"></div>
+        <div class="visualCard cardBack">
+          <span class="miniTag">CINEMATIC</span>
+          <div class="fakeScene sceneOne"></div>
+          <b>Neon City Story</b><small>10s • Premium Prompt</small>
+        </div>
+        <div class="visualCard cardFront">
+          <div class="playBadge">▶</div>
+          <div class="fakeScene sceneTwo"></div>
+          <div class="visualMeta"><span><b>AI VIDEO PROMPT</b><small>Ready to create</small></span><strong>$2.99</strong></div>
+        </div>
+        <div class="floatPill pillOne">✦ High Quality</div>
+        <div class="floatPill pillTwo">⚡ Save Time</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap homeStats">
+    <div><strong>Premium</strong><span>Curated prompt library</span></div>
+    <div><strong>Fast</strong><span>Ready-to-use creative ideas</span></div>
+    <div><strong>Flexible</strong><span>Prompts for multiple video styles</span></div>
+    <div><strong>Secure</strong><span>Admin-managed marketplace</span></div>
+  </section>
+
+  <section class="wrap homeShowcase">
+    <div class="sectionIntro">
+      <span class="sectionKicker">MADE FOR CREATORS</span>
+      <h2>Everything you need to turn an idea into a stronger video.</h2>
+      <p>PromptStudio focuses on clean, useful prompt products—not clutter. Browse visual examples, compare prices, and open the full prompt before buying.</p>
+    </div>
+    <div class="featureGrid">
+      <article class="featureCard featurePink"><span class="featureIcon">⚡</span><h3>Move faster</h3><p>Skip the blank page and start from a structured prompt designed for video generation.</p></article>
+      <article class="featureCard featureDark"><span class="featureIcon">✦</span><h3>Premium presentation</h3><p>Every listing includes a visual cover, clear title, category, duration, description, and price.</p></article>
+      <article class="featureCard featureSoft"><span class="featureIcon">◎</span><h3>Easy marketplace</h3><p>Browse the store in a separate clean page while Admin controls remain protected in the backend.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap homePreview">
+    <div class="previewText"><span class="sectionKicker">PROMPT MARKETPLACE</span><h2>A clean store for premium prompt products.</h2><p>Browse products with large visual previews, clear pricing, and a focused shopping experience.</p><a class="btn primary bigBtn" href="prompts.html">Open Browse Prompts</a></div>
+    <div class="previewStack">
+      <div class="previewProduct p1"><div class="previewImage imgA"></div><b>Cinematic Travel Reveal</b><span>$2.49</span></div>
+      <div class="previewProduct p2"><div class="previewImage imgB"></div><b>Luxury Product Shot</b><span>$3.19</span></div>
+      <div class="previewProduct p3"><div class="previewImage imgC"></div><b>Anime Night Festival</b><span>$2.79</span></div>
+    </div>
+  </section>
+
+  <section class="wrap finalCta">
+    <div><span class="sectionKicker lightKicker">READY TO CREATE?</span><h2>Find your next video prompt today.</h2><p>Open the marketplace and choose a prompt that fits your next project.</p></div>
+    <a class="btn whiteBtn bigBtn" href="prompts.html">Browse Prompts →</a>
+  </section>
+</main>
+
+<footer class="footer homeFooter">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
 </body>
 </html>
