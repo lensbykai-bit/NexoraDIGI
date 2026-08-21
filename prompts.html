@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ff4fa5">
+<title>Browse Prompts — PromptStudio</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="redesign.css">
+</head>
+<body class="marketPage">
+<header class="wrap nav marketNav">
+  <a class="brand" href="index.html"><span class="logo">▶</span><div><b>PromptStudio</b><small>Video Prompt Marketplace</small></div></a>
+  <nav class="navlinks simpleNav"><a href="index.html">Home</a><a class="activeLink" href="prompts.html">Browse Prompts</a></nav>
+  <div class="actions"><span class="account" id="accountLabel"></span><button class="btn adminBtn" id="adminToggle">Admin Panel</button><button class="btn ghost" id="loginBtn">Login</button><button class="btn primary" id="signupBtn">Sign Up</button><button class="btn danger" id="logoutBtn" style="display:none">Logout</button></div>
+</header>
+
+<main>
+  <section class="shopHero">
+    <div class="wrap shopHeroGrid">
+      <div>
+        <span class="heroBadge">✦ PROMPTSTUDIO MARKETPLACE</span>
+        <h1>Shop premium <span>video prompts</span> for your next creation.</h1>
+        <p>Explore admin-curated prompt products with visual covers, clear pricing, and ready-to-use creative direction.</p>
+        <div class="search shopSearch"><input id="search" placeholder="Search prompts by title, style, or keyword..."><button id="searchBtn">Search</button></div>
+      </div>
+      <div class="shopArt" aria-hidden="true">
+        <div class="shopBubble bubble1">AI PROMPT</div><div class="shopBubble bubble2">4K STYLE</div>
+        <div class="shopClap"><div class="shopClapTop"></div><span>SCENE 01</span><b>CREATE</b><small>VIDEO PROMPT</small></div>
+        <div class="shopPlay">▶</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap shopTrust">
+    <div><span>✦</span><b>Admin Curated</b><small>Only approved prompts are published</small></div>
+    <div><span>▣</span><b>Visual Listings</b><small>Cover image, title and details</small></div>
+    <div><span>$</span><b>Clear Pricing</b><small>See the price before opening a listing</small></div>
+    <div><span>🔒</span><b>Protected Manager</b><small>Upload and editing are Admin only</small></div>
+  </section>
+
+  <section class="wrap marketplaceWide" id="marketplace">
+    <div class="marketTitleRow"><div><span class="sectionKicker">BROWSE THE STORE</span><h2>Featured Prompts</h2><p>Choose a prompt product and open it to see more details.</p></div><div class="marketCount">Premium Prompt Collection</div></div>
+    <div class="grid premiumGrid" id="grid"><div class="empty">Loading prompts...</div></div>
+  </section>
+
+  <section class="admin" id="adminSection"><div class="wrap adminShell"><div class="adminHead"><div><h2>Admin Prompt Manager</h2><p>Only Admin accounts can upload, edit, or delete marketplace prompt products.</p></div><button class="btn ghost" id="closeAdmin">Close Admin Panel</button></div><div class="adminGrid"><div class="formCard"><h3 id="formHeading">Upload New Prompt</h3><div class="fields"><div class="field full"><label>Cover Image</label><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp"><div class="uploadPreview" id="imagePreview">Choose an image</div></div><div class="field"><label>Title</label><input id="titleInput" placeholder="Prompt title"></div><div class="field"><label>Category / Style</label><input id="categoryInput" placeholder="e.g. Cinematic"></div><div class="field"><label>Price (USD)</label><input id="priceInput" type="number" min="0" step="0.01" value="2.99"></div><div class="field"><label>Duration</label><input id="durationInput" value="10s"></div><div class="field full"><label>Short Description</label><input id="descriptionInput" placeholder="Short customer-facing description"></div><div class="field full"><label>Full Prompt</label><textarea id="promptInput" placeholder="Paste the full AI video prompt here..."></textarea></div></div><div class="formActions"><button class="btn primary" id="savePrompt">Publish Prompt</button><button class="btn ghost" id="resetForm">Reset</button></div><div class="status" id="adminStatus"></div></div><div class="manageCard"><h3>Manage Prompts</h3><div class="adminList" id="adminList"><div class="status">Loading...</div></div></div></div></div></section>
+
+  <section class="wrap sellerNote"><div><span>♛</span><h3>Marketplace content is controlled by Admin.</h3><p>Customer accounts can browse and sign in, while upload/edit/delete permissions remain protected by Supabase roles and RLS.</p></div><a class="btn ghost" href="index.html">← Back Home</a></section>
+</main>
+
+<div class="modal" id="promptModal"><div class="box promptDetailBox"><button class="close" id="closePrompt">×</button><span class="detailKicker">PROMPT PRODUCT</span><h2 id="modalTitle"></h2><div class="status" id="modalMeta"></div><div class="promptBox" id="modalPrompt"></div><div class="pricebar"><strong class="price" id="modalPrice"></strong><button class="buy">Buy Now</button></div></div></div>
+<div class="modal" id="authModal"><div class="box"><button class="close" id="closeAuth">×</button><div class="tabs"><button id="loginTab" class="active">Login</button><button id="signupTab">Sign Up</button></div><div class="authField" id="nameField" style="display:none"><label>Full Name</label><input id="authName" placeholder="Your name"></div><div class="authField"><label>Email</label><input id="authEmail" type="email" placeholder="name@example.com"></div><div class="authField"><label>Password</label><input id="authPassword" type="password" placeholder="At least 6 characters"></div><button class="btn primary" id="authSubmit" style="width:100%">Login</button><div class="status" id="authStatus"></div></div></div>
+
+<footer class="footer">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
+<script src="app.js"></script>
+</body>
+</html>
