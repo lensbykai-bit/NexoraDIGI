@@ -9,29 +9,31 @@
 <link rel="stylesheet" href="redesign.css">
 <link rel="stylesheet" href="home-hero.css">
 <link rel="stylesheet" href="social-stats.css">
+<link rel="stylesheet" href="language.css">
 </head>
 <body class="homePage">
 <header class="wrap nav homeNav">
-  <a class="brand" href="index.html"><span class="logo">▶</span><div><b>PromptStudio</b><small>Video Prompt Marketplace</small></div></a>
-  <nav class="navlinks simpleNav"><a class="activeLink" href="index.html">Home</a><a href="prompts.html">Browse Prompts</a></nav>
-  <a class="btn primary topCta" href="prompts.html">Explore Marketplace</a>
+  <a class="brand" href="index.html"><span class="logo">▶</span><div><b>PromptStudio</b><small data-i18n="brand.subtitle">Video Prompt Marketplace</small></div></a>
+  <nav class="navlinks simpleNav"><a class="activeLink" href="index.html" data-i18n="nav.home">Home</a><a href="prompts.html" data-i18n="nav.browse">Browse Prompts</a></nav>
+  <div class="languageSwitch" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="km">ខ្មែរ</button><button type="button" data-lang="zh">中文</button></div>
+  <a class="btn primary topCta" href="prompts.html" data-i18n="nav.explore">Explore Marketplace</a>
 </header>
 
 <main>
   <section class="homeHero hero2026">
     <div class="wrap hero2026Grid">
       <div class="hero2026Copy">
-        <span class="hero2026Badge">★ PREMIUM VIDEO PROMPTS</span>
-        <h1>Create Stunning <span>Videos. Faster.</span></h1>
-        <p>Discover and buy high-quality AI video prompts for any style, mood, or platform. Start with stronger ideas and create polished videos without beginning from zero.</p>
+        <span class="hero2026Badge" data-i18n="home.badge">★ PREMIUM VIDEO PROMPTS</span>
+        <h1><span style="display:inline;color:#201323;background:none;-webkit-text-fill-color:initial" data-i18n="home.titleA">Create Stunning</span> <span data-i18n="home.titleB">Videos. Faster.</span></h1>
+        <p data-i18n="home.desc">Discover and buy high-quality AI video prompts for any style, mood, or platform. Start with stronger ideas and create polished videos without beginning from zero.</p>
         <div class="hero2026Actions">
-          <a class="btn primary bigBtn" href="prompts.html">Explore Marketplace →</a>
-          <a class="btn ghost bigBtn" href="prompts.html">Browse New Prompts</a>
+          <a class="btn primary bigBtn" href="prompts.html" data-i18n="home.explore">Explore Marketplace →</a>
+          <a class="btn ghost bigBtn" href="prompts.html" data-i18n="home.new">Browse New Prompts</a>
         </div>
         <div class="hero2026Mini">
-          <div><span>✦</span><b>Premium Quality</b><small>Carefully curated prompts</small></div>
-          <div><span>⚡</span><b>Save Time</b><small>Create faster with ready ideas</small></div>
-          <div><span>✓</span><b>For All Creators</b><small>Built for every video style</small></div>
+          <div><span>✦</span><b data-i18n="home.premium">Premium Quality</b><small data-i18n="home.premiumSub">Carefully curated prompts</small></div>
+          <div><span>⚡</span><b data-i18n="home.save">Save Time</b><small data-i18n="home.saveSub">Create faster with ready ideas</small></div>
+          <div><span>✓</span><b data-i18n="home.creators">For All Creators</b><small data-i18n="home.creatorsSub">Built for every video style</small></div>
         </div>
       </div>
 
@@ -40,73 +42,39 @@
         <div class="heroFloatTag tagA">✦ PREMIUM VISUAL PROMPTS</div>
         <div class="heroFloatTag tagB">4K • ANIME • SCI-FI</div>
         <div class="heroSpark sparkA">✦</div><div class="heroSpark sparkB">●</div><div class="heroSpark sparkC">♡</div>
-
-        <article class="promptArtCard promptMountain">
-          <div class="promptArtImage" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85')"><span class="artPlay">▶</span></div>
-          <div class="promptArtInfo"><span>CINEMATIC • 4K</span><b>Cinematic Drone Shot</b><small>Epic mountain sunrise • premium prompt</small></div>
-        </article>
-
-        <article class="promptArtCard promptCity">
-          <div class="promptArtImage" style="background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85')"><span class="artPlay">▶</span></div>
-          <div class="promptArtInfo"><span>NEON • NIGHT</span><b>Anime City Night</b><small>Vibrant city atmosphere • cinematic motion</small></div>
-        </article>
-
-        <article class="promptArtCard promptTunnel">
-          <div class="promptArtImage" style="background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=900&q=85')"><span class="artPlay">▶</span></div>
-          <div class="promptArtInfo"><span>SCI-FI • 4K</span><b>Futuristic Tunnel</b><small>Glowing lights • smooth camera movement</small></div>
-        </article>
+        <article class="promptArtCard promptMountain"><div class="promptArtImage" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85')"><span class="artPlay">▶</span></div><div class="promptArtInfo"><span>CINEMATIC • 4K</span><b>Cinematic Drone Shot</b><small>Epic mountain sunrise • premium prompt</small></div></article>
+        <article class="promptArtCard promptCity"><div class="promptArtImage" style="background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85')"><span class="artPlay">▶</span></div><div class="promptArtInfo"><span>NEON • NIGHT</span><b>Anime City Night</b><small>Vibrant city atmosphere • cinematic motion</small></div></article>
+        <article class="promptArtCard promptTunnel"><div class="promptArtImage" style="background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=900&q=85')"><span class="artPlay">▶</span></div><div class="promptArtInfo"><span>SCI-FI • 4K</span><b>Futuristic Tunnel</b><small>Glowing lights • smooth camera movement</small></div></article>
         <div class="clapper2026"></div><div class="playCube2026">▶</div>
       </div>
     </div>
   </section>
 
   <section class="wrap homeStats socialStats" aria-label="Marketplace activity">
-    <div class="socialStat">
-      <span class="statIcon">♥</span>
-      <strong class="statNumber" data-counter="12840">0</strong>
-      <span class="statLabel">Community Likes</span>
-    </div>
-    <div class="socialStat">
-      <span class="statIcon">◉</span>
-      <strong class="statNumber" data-counter="86420">0</strong>
-      <span class="statLabel">Marketplace Views</span>
-    </div>
-    <div class="socialStat">
-      <span class="statIcon">✓</span>
-      <strong class="statNumber" data-counter="3260">0</strong>
-      <span class="statLabel">Happy Buyers</span>
-    </div>
+    <div class="socialStat"><span class="statIcon">♥</span><strong class="statNumber" data-counter="12840">0</strong><span class="statLabel" data-i18n="home.likes">Community Likes</span></div>
+    <div class="socialStat"><span class="statIcon">◉</span><strong class="statNumber" data-counter="86420">0</strong><span class="statLabel" data-i18n="home.views">Marketplace Views</span></div>
+    <div class="socialStat"><span class="statIcon">✓</span><strong class="statNumber" data-counter="3260">0</strong><span class="statLabel" data-i18n="home.buyers">Happy Buyers</span></div>
   </section>
 
   <section class="wrap homeShowcase">
-    <div class="sectionIntro">
-      <span class="sectionKicker">MADE FOR CREATORS</span>
-      <h2>Everything you need to turn an idea into a stronger video.</h2>
-      <p>PromptStudio focuses on clean, useful prompt products—not clutter. Browse visual examples, compare prices, and open the full prompt before buying.</p>
-    </div>
+    <div class="sectionIntro"><span class="sectionKicker" data-i18n="home.made">MADE FOR CREATORS</span><h2 data-i18n="home.showTitle">Everything you need to turn an idea into a stronger video.</h2><p data-i18n="home.showDesc">PromptStudio focuses on clean, useful prompt products—not clutter. Browse visual examples, compare prices, and open the full prompt before buying.</p></div>
     <div class="featureGrid">
-      <article class="featureCard featurePink"><span class="featureIcon">⚡</span><h3>Move faster</h3><p>Skip the blank page and start from a structured prompt designed for video generation.</p></article>
-      <article class="featureCard featureDark"><span class="featureIcon">✦</span><h3>Premium presentation</h3><p>Every listing includes a visual cover, clear title, category, duration, description, and price.</p></article>
-      <article class="featureCard featureSoft"><span class="featureIcon">◎</span><h3>Easy marketplace</h3><p>Browse the store in a separate clean page while Admin controls remain protected in the backend.</p></article>
+      <article class="featureCard featurePink"><span class="featureIcon">⚡</span><h3 data-i18n="home.move">Move faster</h3><p data-i18n="home.moveDesc">Skip the blank page and start from a structured prompt designed for video generation.</p></article>
+      <article class="featureCard featureDark"><span class="featureIcon">✦</span><h3 data-i18n="home.presentation">Premium presentation</h3><p data-i18n="home.presentationDesc">Every listing includes a visual cover, clear title, category, duration, description, and price.</p></article>
+      <article class="featureCard featureSoft"><span class="featureIcon">◎</span><h3 data-i18n="home.easy">Easy marketplace</h3><p data-i18n="home.easyDesc">Browse the store in a separate clean page while Admin controls remain protected in the backend.</p></article>
     </div>
   </section>
 
   <section class="wrap homePreview">
-    <div class="previewText"><span class="sectionKicker">PROMPT MARKETPLACE</span><h2>A clean store for premium prompt products.</h2><p>Browse products with large visual previews, clear pricing, and a focused shopping experience.</p><a class="btn primary bigBtn" href="prompts.html">Open Browse Prompts</a></div>
-    <div class="previewStack">
-      <div class="previewProduct p1"><div class="previewImage imgA"></div><b>Cinematic Travel Reveal</b><span>$2.49</span></div>
-      <div class="previewProduct p2"><div class="previewImage imgB"></div><b>Luxury Product Shot</b><span>$3.19</span></div>
-      <div class="previewProduct p3"><div class="previewImage imgC"></div><b>Anime Night Festival</b><span>$2.79</span></div>
-    </div>
+    <div class="previewText"><span class="sectionKicker" data-i18n="home.marketKicker">PROMPT MARKETPLACE</span><h2 data-i18n="home.marketTitle">A clean store for premium prompt products.</h2><p data-i18n="home.marketDesc">Browse products with large visual previews, clear pricing, and a focused shopping experience.</p><a class="btn primary bigBtn" href="prompts.html" data-i18n="home.openBrowse">Open Browse Prompts</a></div>
+    <div class="previewStack"><div class="previewProduct p1"><div class="previewImage imgA"></div><b>Cinematic Travel Reveal</b><span>$2.49</span></div><div class="previewProduct p2"><div class="previewImage imgB"></div><b>Luxury Product Shot</b><span>$3.19</span></div><div class="previewProduct p3"><div class="previewImage imgC"></div><b>Anime Night Festival</b><span>$2.79</span></div></div>
   </section>
 
-  <section class="wrap finalCta">
-    <div><span class="sectionKicker lightKicker">READY TO CREATE?</span><h2>Find your next video prompt today.</h2><p>Open the marketplace and choose a prompt that fits your next project.</p></div>
-    <a class="btn whiteBtn bigBtn" href="prompts.html">Browse Prompts →</a>
-  </section>
+  <section class="wrap finalCta"><div><span class="sectionKicker lightKicker" data-i18n="home.ready">READY TO CREATE?</span><h2 data-i18n="home.finalTitle">Find your next video prompt today.</h2><p data-i18n="home.finalDesc">Open the marketplace and choose a prompt that fits your next project.</p></div><a class="btn whiteBtn bigBtn" href="prompts.html" data-i18n="home.browseArrow">Browse Prompts →</a></section>
 </main>
 
-<footer class="footer homeFooter">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
+<footer class="footer homeFooter" data-i18n="home.footer">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
+<script src="i18n.js"></script>
 <script src="home-stats.js"></script>
 </body>
 </html>

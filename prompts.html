@@ -8,52 +8,37 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="redesign.css">
+<link rel="stylesheet" href="language.css">
 </head>
 <body class="marketPage">
 <header class="wrap nav marketNav">
-  <a class="brand" href="index.html"><span class="logo">▶</span><div><b>PromptStudio</b><small>Video Prompt Marketplace</small></div></a>
-  <nav class="navlinks simpleNav"><a href="index.html">Home</a><a class="activeLink" href="prompts.html">Browse Prompts</a></nav>
-  <div class="actions"><span class="account" id="accountLabel"></span><button class="btn adminBtn" id="adminToggle">Admin Panel</button><button class="btn ghost" id="loginBtn">Login</button><button class="btn primary" id="signupBtn">Sign Up</button><button class="btn danger" id="logoutBtn" style="display:none">Logout</button></div>
+  <a class="brand" href="index.html"><span class="logo">▶</span><div><b>PromptStudio</b><small data-i18n="brand.subtitle">Video Prompt Marketplace</small></div></a>
+  <nav class="navlinks simpleNav"><a href="index.html" data-i18n="nav.home">Home</a><a class="activeLink" href="prompts.html" data-i18n="nav.browse">Browse Prompts</a></nav>
+  <div class="actions"><div class="languageSwitch" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="km">ខ្មែរ</button><button type="button" data-lang="zh">中文</button></div><span class="account" id="accountLabel"></span><button class="btn adminBtn" id="adminToggle" data-i18n="nav.admin">Admin Panel</button><button class="btn ghost" id="loginBtn" data-i18n="nav.login">Login</button><button class="btn primary" id="signupBtn" data-i18n="nav.signup">Sign Up</button><button class="btn danger" id="logoutBtn" style="display:none" data-i18n="nav.logout">Logout</button></div>
 </header>
 
 <main>
-  <section class="shopHero">
-    <div class="wrap shopHeroGrid">
-      <div>
-        <span class="heroBadge">✦ PROMPTSTUDIO MARKETPLACE</span>
-        <h1>Shop premium <span>video prompts</span> for your next creation.</h1>
-        <p>Explore admin-curated prompt products with visual covers, clear pricing, and ready-to-use creative direction.</p>
-        <div class="search shopSearch"><input id="search" placeholder="Search prompts by title, style, or keyword..."><button id="searchBtn">Search</button></div>
-      </div>
-      <div class="shopArt" aria-hidden="true">
-        <div class="shopBubble bubble1">AI PROMPT</div><div class="shopBubble bubble2">4K STYLE</div>
-        <div class="shopClap"><div class="shopClapTop"></div><span>SCENE 01</span><b>CREATE</b><small>VIDEO PROMPT</small></div>
-        <div class="shopPlay">▶</div>
-      </div>
-    </div>
-  </section>
+  <section class="shopHero"><div class="wrap shopHeroGrid"><div><span class="heroBadge" data-i18n="market.badge">✦ PROMPTSTUDIO MARKETPLACE</span><h1><span style="color:inherit" data-i18n="market.titleA">Shop premium</span> <span data-i18n="market.titleB">video prompts</span> <span style="color:inherit" data-i18n="market.titleC">for your next creation.</span></h1><p data-i18n="market.desc">Explore admin-curated prompt products with visual covers, clear pricing, and ready-to-use creative direction.</p><div class="search shopSearch"><input id="search" data-i18n-placeholder="market.searchPlaceholder" placeholder="Search prompts by title, style, or keyword..."><button id="searchBtn" data-i18n="market.search">Search</button></div></div><div class="shopArt" aria-hidden="true"><div class="shopBubble bubble1">AI PROMPT</div><div class="shopBubble bubble2">4K STYLE</div><div class="shopClap"><div class="shopClapTop"></div><span>SCENE 01</span><b>CREATE</b><small>VIDEO PROMPT</small></div><div class="shopPlay">▶</div></div></div></section>
 
   <section class="wrap shopTrust">
-    <div><span>✦</span><b>Admin Curated</b><small>Only approved prompts are published</small></div>
-    <div><span>▣</span><b>Visual Listings</b><small>Cover image, title and details</small></div>
-    <div><span>$</span><b>Clear Pricing</b><small>See the price before opening a listing</small></div>
-    <div><span>🔒</span><b>Protected Manager</b><small>Upload and editing are Admin only</small></div>
+    <div><span>✦</span><b data-i18n="market.adminCurated">Admin Curated</b><small data-i18n="market.adminCuratedSub">Only approved prompts are published</small></div>
+    <div><span>▣</span><b data-i18n="market.visualListings">Visual Listings</b><small data-i18n="market.visualListingsSub">Cover image, title and details</small></div>
+    <div><span>$</span><b data-i18n="market.clearPricing">Clear Pricing</b><small data-i18n="market.clearPricingSub">See the price before opening a listing</small></div>
+    <div><span>🔒</span><b data-i18n="market.protected">Protected Manager</b><small data-i18n="market.protectedSub">Upload and editing are Admin only</small></div>
   </section>
 
-  <section class="wrap marketplaceWide" id="marketplace">
-    <div class="marketTitleRow"><div><span class="sectionKicker">BROWSE THE STORE</span><h2>Featured Prompts</h2><p>Choose a prompt product and open it to see more details.</p></div><div class="marketCount">Premium Prompt Collection</div></div>
-    <div class="grid premiumGrid" id="grid"><div class="empty">Loading prompts...</div></div>
-  </section>
+  <section class="wrap marketplaceWide" id="marketplace"><div class="marketTitleRow"><div><span class="sectionKicker" data-i18n="market.browseStore">BROWSE THE STORE</span><h2 data-i18n="market.featured">Featured Prompts</h2><p data-i18n="market.featuredDesc">Choose a prompt product and open it to see more details.</p></div><div class="marketCount" data-i18n="market.collection">Premium Prompt Collection</div></div><div class="grid premiumGrid" id="grid"><div class="empty" data-i18n="market.loading">Loading prompts...</div></div></section>
 
-  <section class="admin" id="adminSection"><div class="wrap adminShell"><div class="adminHead"><div><h2>Admin Prompt Manager</h2><p>Only Admin accounts can upload, edit, or delete marketplace prompt products.</p></div><button class="btn ghost" id="closeAdmin">Close Admin Panel</button></div><div class="adminGrid"><div class="formCard"><h3 id="formHeading">Upload New Prompt</h3><div class="fields"><div class="field full"><label>Cover Image</label><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp"><div class="uploadPreview" id="imagePreview">Choose an image</div></div><div class="field"><label>Title</label><input id="titleInput" placeholder="Prompt title"></div><div class="field"><label>Category / Style</label><input id="categoryInput" placeholder="e.g. Cinematic"></div><div class="field"><label>Price (USD)</label><input id="priceInput" type="number" min="0" step="0.01" value="2.99"></div><div class="field"><label>Duration</label><input id="durationInput" value="10s"></div><div class="field full"><label>Short Description</label><input id="descriptionInput" placeholder="Short customer-facing description"></div><div class="field full"><label>Full Prompt</label><textarea id="promptInput" placeholder="Paste the full AI video prompt here..."></textarea></div></div><div class="formActions"><button class="btn primary" id="savePrompt">Publish Prompt</button><button class="btn ghost" id="resetForm">Reset</button></div><div class="status" id="adminStatus"></div></div><div class="manageCard"><h3>Manage Prompts</h3><div class="adminList" id="adminList"><div class="status">Loading...</div></div></div></div></div></section>
+  <section class="admin" id="adminSection"><div class="wrap adminShell"><div class="adminHead"><div><h2 data-i18n="admin.manager">Admin Prompt Manager</h2><p data-i18n="admin.managerDesc">Only Admin accounts can upload, edit, or delete marketplace prompt products.</p></div><button class="btn ghost" id="closeAdmin" data-i18n="admin.close">Close Admin Panel</button></div><div class="adminGrid"><div class="formCard"><h3 id="formHeading" data-i18n="admin.upload">Upload New Prompt</h3><div class="fields"><div class="field full"><label data-i18n="admin.cover">Cover Image</label><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp"><div class="uploadPreview" id="imagePreview" data-i18n="admin.choose">Choose an image</div></div><div class="field"><label data-i18n="admin.title">Title</label><input id="titleInput" data-i18n-placeholder="admin.titlePh" placeholder="Prompt title"></div><div class="field"><label data-i18n="admin.category">Category / Style</label><input id="categoryInput" data-i18n-placeholder="admin.categoryPh" placeholder="e.g. Cinematic"></div><div class="field"><label data-i18n="admin.price">Price (USD)</label><input id="priceInput" type="number" min="0" step="0.01" value="2.99"></div><div class="field"><label data-i18n="admin.duration">Duration</label><input id="durationInput" value="10s"></div><div class="field full"><label data-i18n="admin.short">Short Description</label><input id="descriptionInput" data-i18n-placeholder="admin.shortPh" placeholder="Short customer-facing description"></div><div class="field full"><label data-i18n="admin.full">Full Prompt</label><textarea id="promptInput" data-i18n-placeholder="admin.fullPh" placeholder="Paste the full AI video prompt here..."></textarea></div></div><div class="formActions"><button class="btn primary" id="savePrompt" data-i18n="admin.publish">Publish Prompt</button><button class="btn ghost" id="resetForm" data-i18n="admin.reset">Reset</button></div><div class="status" id="adminStatus"></div></div><div class="manageCard"><h3 data-i18n="admin.manage">Manage Prompts</h3><div class="adminList" id="adminList"><div class="status" data-i18n="market.loading">Loading...</div></div></div></div></div></section>
 
-  <section class="wrap sellerNote"><div><span>♛</span><h3>Marketplace content is controlled by Admin.</h3><p>Customer accounts can browse and sign in, while upload/edit/delete permissions remain protected by Supabase roles and RLS.</p></div><a class="btn ghost" href="index.html">← Back Home</a></section>
+  <section class="wrap sellerNote"><div><span>♛</span><h3 data-i18n="market.controlled">Marketplace content is controlled by Admin.</h3><p data-i18n="market.controlledDesc">Customer accounts can browse and sign in, while upload/edit/delete permissions remain protected by Supabase roles and RLS.</p></div><a class="btn ghost" href="index.html" data-i18n="market.backHome">← Back Home</a></section>
 </main>
 
-<div class="modal" id="promptModal"><div class="box promptDetailBox"><button class="close" id="closePrompt">×</button><span class="detailKicker">PROMPT PRODUCT</span><h2 id="modalTitle"></h2><div class="status" id="modalMeta"></div><div class="promptBox" id="modalPrompt"></div><div class="pricebar"><strong class="price" id="modalPrice"></strong><button class="buy">Buy Now</button></div></div></div>
-<div class="modal" id="authModal"><div class="box"><button class="close" id="closeAuth">×</button><div class="tabs"><button id="loginTab" class="active">Login</button><button id="signupTab">Sign Up</button></div><div class="authField" id="nameField" style="display:none"><label>Full Name</label><input id="authName" placeholder="Your name"></div><div class="authField"><label>Email</label><input id="authEmail" type="email" placeholder="name@example.com"></div><div class="authField"><label>Password</label><input id="authPassword" type="password" placeholder="At least 6 characters"></div><button class="btn primary" id="authSubmit" style="width:100%">Login</button><div class="status" id="authStatus"></div></div></div>
+<div class="modal" id="promptModal"><div class="box promptDetailBox"><button class="close" id="closePrompt">×</button><span class="detailKicker" data-i18n="market.promptProduct">PROMPT PRODUCT</span><h2 id="modalTitle"></h2><div class="status" id="modalMeta"></div><div class="promptBox" id="modalPrompt"></div><div class="pricebar"><strong class="price" id="modalPrice"></strong><button class="buy" data-i18n="market.buyNow">Buy Now</button></div></div></div>
+<div class="modal" id="authModal"><div class="box"><button class="close" id="closeAuth">×</button><div class="tabs"><button id="loginTab" class="active" data-i18n="auth.login">Login</button><button id="signupTab" data-i18n="auth.signup">Sign Up</button></div><div class="authField" id="nameField" style="display:none"><label data-i18n="auth.fullName">Full Name</label><input id="authName" data-i18n-placeholder="auth.namePh" placeholder="Your name"></div><div class="authField"><label data-i18n="auth.email">Email</label><input id="authEmail" type="email" placeholder="name@example.com"></div><div class="authField"><label data-i18n="auth.password">Password</label><input id="authPassword" type="password" data-i18n-placeholder="auth.passwordPh" placeholder="At least 6 characters"></div><button class="btn primary" id="authSubmit" style="width:100%" data-i18n="auth.login">Login</button><div class="status" id="authStatus"></div></div></div>
 
-<footer class="footer">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
+<footer class="footer" data-i18n="market.footer">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
