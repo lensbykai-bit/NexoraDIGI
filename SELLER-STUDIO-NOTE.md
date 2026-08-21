@@ -1,1 +1,0 @@
-Seller Upload Studio update in progress.
