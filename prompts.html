@@ -14,7 +14,20 @@
 <header class="wrap nav marketNav">
   <a class="brand" href="index.html"><span class="logo">▶</span><div><b>PromptStudio</b><small data-i18n="brand.subtitle">Video Prompt Marketplace</small></div></a>
   <nav class="navlinks simpleNav"><a href="index.html" data-i18n="nav.home">Home</a><a class="activeLink" href="prompts.html" data-i18n="nav.browse">Browse Prompts</a></nav>
-  <div class="actions"><div class="languageSwitch" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="km">ខ្មែរ</button><button type="button" data-lang="zh">中文</button></div><span class="account" id="accountLabel"></span><button class="btn adminBtn" id="adminToggle" data-i18n="nav.admin">Admin Panel</button><button class="btn ghost" id="loginBtn" data-i18n="nav.login">Login</button><button class="btn primary" id="signupBtn" data-i18n="nav.signup">Sign Up</button><button class="btn danger" id="logoutBtn" style="display:none" data-i18n="nav.logout">Logout</button></div>
+  <div class="actions"><span class="account" id="accountLabel"></span><button class="btn adminBtn" id="adminToggle" data-i18n="nav.admin">Admin Panel</button><button class="btn ghost" id="loginBtn" data-i18n="nav.login">Login</button><button class="btn primary" id="signupBtn" data-i18n="nav.signup">Sign Up</button><button class="btn danger" id="logoutBtn" style="display:none" data-i18n="nav.logout">Logout</button>
+    <div class="languageDropdown" aria-label="Choose language">
+      <button class="languageTrigger" type="button" aria-haspopup="true"><span class="languageGlobe">🌐</span><span data-current-lang>EN</span><span class="languageChevron">▼</span></button>
+      <div class="languageMenu">
+        <button type="button" data-lang="fr"><span>FR</span><span class="languageName">Français</span></button>
+        <button type="button" data-lang="en"><span>EN</span><span class="languageName">English</span></button>
+        <button type="button" data-lang="es"><span>ES</span><span class="languageName">Español</span></button>
+        <button type="button" data-lang="de"><span>DE</span><span class="languageName">Deutsch</span></button>
+        <button type="button" data-lang="ru"><span>RU</span><span class="languageName">Русский</span></button>
+        <button type="button" data-lang="km"><span>KH</span><span class="languageName">ខ្មែរ</span></button>
+        <button type="button" data-lang="zh"><span>CN</span><span class="languageName">中文</span></button>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main>
@@ -39,6 +52,7 @@
 
 <footer class="footer" data-i18n="market.footer">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
 <script src="i18n.js"></script>
+<script src="i18n7.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
