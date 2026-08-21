@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="redesign.css">
 <link rel="stylesheet" href="home-hero.css">
+<link rel="stylesheet" href="social-stats.css">
 </head>
 <body class="homePage">
 <header class="wrap nav homeNav">
@@ -59,11 +60,22 @@
     </div>
   </section>
 
-  <section class="wrap homeStats">
-    <div><strong>Premium</strong><span>Curated prompt library</span></div>
-    <div><strong>Fast</strong><span>Ready-to-use creative ideas</span></div>
-    <div><strong>Flexible</strong><span>Prompts for multiple video styles</span></div>
-    <div><strong>Secure</strong><span>Admin-managed marketplace</span></div>
+  <section class="wrap homeStats socialStats" aria-label="Marketplace activity">
+    <div class="socialStat">
+      <span class="statIcon">♥</span>
+      <strong class="statNumber" data-counter="12840">0</strong>
+      <span class="statLabel">Community Likes</span>
+    </div>
+    <div class="socialStat">
+      <span class="statIcon">◉</span>
+      <strong class="statNumber" data-counter="86420">0</strong>
+      <span class="statLabel">Marketplace Views</span>
+    </div>
+    <div class="socialStat">
+      <span class="statIcon">✓</span>
+      <strong class="statNumber" data-counter="3260">0</strong>
+      <span class="statLabel">Happy Buyers</span>
+    </div>
   </section>
 
   <section class="wrap homeShowcase">
@@ -95,5 +107,6 @@
 </main>
 
 <footer class="footer homeFooter">© 2026 PromptStudio — Premium Video Prompt Marketplace</footer>
+<script src="home-stats.js"></script>
 </body>
 </html>
